@@ -1,0 +1,7 @@
+;; 打开emacs后必须立刻使用的
+
+(enable-theme 'doom-tokyo-night)
+
+
+
+(provide 'init-config)

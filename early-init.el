@@ -10,8 +10,8 @@
 
 
 (add-to-list 'load-path "~/.emacs.d/site-lisp/pkg/lazycat-theme")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/pkg/themes")
-(require 'lazycat-theme)
-(require 'doom-themes)
 
-(load-theme 'doom-tokyo-night t t)
+(require 'lazycat-theme)
+
+
+
