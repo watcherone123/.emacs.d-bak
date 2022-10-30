@@ -1,0 +1,8 @@
+;;; -*- coding: utf-8; mode: lisp-data -*-
+(("/home/sky/.emacs.d/"
+  (dired-filename . "/home/sky/.emacs.d/init.el"))
+ ("/home/sky/.emacs.d/init.el" . 137)
+ ("/home/sky/.emacs.d/site-lisp/config/"
+  (dired-filename . "/home/sky/.emacs.d/site-lisp/config/init-better-default.el"))
+ ("/home/sky/.emacs.d/site-lisp/config/init-better-default.el" . 1439)
+ ("/home/sky/.emacs.d/site-lisp/config/init-config.el" . 290))

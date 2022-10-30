@@ -1,3 +1,9 @@
 [submodule "site-lisp/pkg/lazycat-theme"]
 	path = site-lisp/pkg/lazycat-theme
 	url = https://github.com/manateelazycat/lazycat-theme.git
+[submodule "site-lisp/pkg/lazy-load"]
+	path = site-lisp/pkg/lazy-load
+	url = https://github.com/manateelazycat/lazy-load.git
+[submodule "site-lisp/pkg/one-key"]
+	path = site-lisp/pkg/one-key
+	url = https://github.com/manateelazycat/one-key.git
