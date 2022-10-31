@@ -22,6 +22,17 @@
 (setq ad-redefinition-action 'accept)   ;不要烦人的 redefine warning
 (setq frame-resize-pixelwise t) ;设置缩放的模式,避免Mac平台最大化窗口以后右边和下边有空隙
 
+(add-to-list 'after-make-frame-functions
+	     (lambda (new-frame)
+	       (select-frame new-frame)
+		;; English Font
+		(set-face-attribute 'default nil :font "Fira Mono 12")
+		;; Chinese Font
+		(dolist (charset '(kana han symbol cjk-misc bopomofo))
+		  (set-fontset-font (frame-parameter nil 'font)
+		         charset (font-spec :family "Noto Sans CJK SC" :size 16)))))
+
+
 ;; 平滑地进行半屏滚动，避免滚动后recenter操作
 (setq scroll-step 1
       scroll-conservatively 10000)

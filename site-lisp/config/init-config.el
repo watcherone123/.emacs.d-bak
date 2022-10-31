@@ -10,7 +10,8 @@
 (add-hook 'window-setup-hook (lambda ()
 
 			       (require 'init-better-default)
-			       (+sky/set-fonts)
+			       (require 'init-awesome-tray)
+			      ;; (+sky/set-fonts)
 			       (+sky/scratch-setup)))
 
 (provide 'init-config)

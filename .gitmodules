@@ -7,3 +7,6 @@
 [submodule "site-lisp/pkg/one-key"]
 	path = site-lisp/pkg/one-key
 	url = https://github.com/manateelazycat/one-key.git
+[submodule "site-lisp/pkg/awesome-tray"]
+	path = site-lisp/pkg/awesome-tray
+	url = https://github.com/manateelazycat/awesome-tray.git
