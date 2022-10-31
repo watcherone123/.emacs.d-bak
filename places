@@ -1,9 +1,10 @@
 ;;; -*- coding: utf-8; mode: lisp-data -*-
-(("c:/Users/N0012/.emacs.d/site-lisp/config/init-better-default.el" . 2333)
+(("c:/Users/N0012/.emacs.d/"
+  (dired-filename . "c:/Users/N0012/.emacs.d/.gitignore"))
+ ("c:/Users/N0012/.emacs.d/.gitignore" . 23)
+ ("c:/Users/N0012/.emacs.d/site-lisp/config/init-better-default.el" . 2333)
  ("c:/Users/N0012/.emacs.d/site-lisp/config/init-font.el" . 1407)
  ("c:/Users/N0012/.emacs.d/site-lisp/config/init-config.el" . 257)
- ("c:/Users/N0012/.emacs.d/"
-  (dired-filename . "c:/Users/N0012/.emacs.d/site-lisp"))
  ("c:/Users/N0012/.emacs.d/site-lisp/"
   (dired-filename . "c:/Users/N0012/.emacs.d/site-lisp/config"))
  ("c:/Users/N0012/.emacs.d/site-lisp/config/"
