@@ -10,3 +10,24 @@
 [submodule "site-lisp/pkg/awesome-tray"]
 	path = site-lisp/pkg/awesome-tray
 	url = https://github.com/manateelazycat/awesome-tray.git
+[submodule "site-lisp/pkg/grammatical-edit"]
+	path = site-lisp/pkg/grammatical-edit
+	url = https://github.com/manateelazycat/grammatical-edit.git
+[submodule "site-lisp/pkg/tree-sitter"]
+	path = site-lisp/pkg/tree-sitter
+	url = https://github.com/emacs-tree-sitter/elisp-tree-sitter.git
+[submodule "site-lisp/pkg/auto-save"]
+	path = site-lisp/pkg/auto-save
+	url = https://github.com/manateelazycat/auto-save.git
+[submodule "site-lisp/pkg/postframe"]
+	path = site-lisp/pkg/postframe
+	url = https://github.com/tumashu/posframe.git
+[submodule "site-lisp/pkg/markdown-mode"]
+	path = site-lisp/pkg/markdown-mode
+	url = https://github.com/jrblevin/markdown-mode.git
+[submodule "site-lisp/pkg/yasnippet"]
+	path = site-lisp/pkg/yasnippet
+	url = https://github.com/joaotavora/yasnippet.git
+[submodule "site-lisp/pkg/lsp-bridge"]
+	path = site-lisp/pkg/lsp-bridge
+	url = https://github.com/manateelazycat/lsp-bridge.git
