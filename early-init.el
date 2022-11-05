@@ -7,11 +7,11 @@
 (push '(tool-bar-lines . 0) default-frame-alist)
 (push '(menu-bar-lines . 0) default-frame-alist)
 (scroll-bar-mode -1)
-
+(setq byte-compile-warnings '(cl-functions)) ;;去除cl警告
 
 (add-to-list 'load-path "~/.emacs.d/site-lisp/pkg/lazycat-theme")
 
 (require 'lazycat-theme)
-
+(lazycat-theme-load-dark)
 
 

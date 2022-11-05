@@ -1,17 +1,5 @@
 ;;; -*- coding: utf-8; mode: lisp-data -*-
-(("c:/Users/N0012/.emacs.d/"
-  (dired-filename . "c:/Users/N0012/.emacs.d/.gitignore"))
- ("c:/Users/N0012/.emacs.d/.gitignore" . 23)
- ("c:/Users/N0012/.emacs.d/site-lisp/config/init-better-default.el" . 2333)
- ("c:/Users/N0012/.emacs.d/site-lisp/config/init-font.el" . 1407)
- ("c:/Users/N0012/.emacs.d/site-lisp/config/init-config.el" . 257)
- ("c:/Users/N0012/.emacs.d/site-lisp/"
-  (dired-filename . "c:/Users/N0012/.emacs.d/site-lisp/config"))
- ("c:/Users/N0012/.emacs.d/site-lisp/config/"
-  (dired-filename . "c:/Users/N0012/.emacs.d/site-lisp/config/init-better-default.el"))
- ("c:/Users/N0012/.emacs.d/site-lisp/config/init-awesome-tray.el" . 215)
- ("c:/Users/N0012/.gitconfig" . 63)
- ("c:/Users/N0012/"
-  (dired-filename . "c:/Users/N0012/.gitconfig"))
- ("c:/Users/N0012/.emacs.d/init.el" . 1474)
- ("c:/Users/N0012/workspace/test.org" . 42))
+(("/home/sky/.emacs.d/"
+  (dired-filename . "/home/sky/.emacs.d/early-init.el"))
+ ("/home/sky/.emacs.d/early-init.el" . 461)
+ ("/home/sky/.emacs.d/init.el" . 585))

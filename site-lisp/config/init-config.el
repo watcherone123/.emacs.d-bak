@@ -1,17 +1,24 @@
-;; 打开emacs后必须立刻使用的
+;; 加速配置。
+(require 'init-accelerate)
 
-(lazycat-theme-load-dark)
-(require 'init-generic)
+;; 字体设置
+(require 'init-font)
 
 
-(require 'lazy-load)
-(require 'one-key)
-;; 打开窗口后再使用
-(add-hook 'window-setup-hook (lambda ()
+(with-temp-message ""              ;抹掉插件启动的输出
+	;; (require 'init-fullscreen)
 
-			       (require 'init-better-default)
-			       (require 'init-awesome-tray)
-			      ;; (+sky/set-fonts)
-			       (+sky/scratch-setup)))
+	(require 'init-generic)
+	(require 'lazy-load)
+	(require 'one-key)
+	(require 'highlight-parentheses)
+
+		;; 可以延后加载的
+		(run-with-idle-timer
+			1 nil
+			#'(lambda ()
+					(require 'init-awesome-tray)
+				)))
+
 
 (provide 'init-config)

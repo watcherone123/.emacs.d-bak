@@ -1,6 +1,0 @@
-git status
-git checkout .
-git status
-code .
-git add .
-git commit -m "te"
