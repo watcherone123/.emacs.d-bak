@@ -31,3 +31,57 @@
 [submodule "site-lisp/pkg/lsp-bridge"]
 	path = site-lisp/pkg/lsp-bridge
 	url = https://github.com/manateelazycat/lsp-bridge.git
+[submodule "site-lisp/pkg/emacs-application-framework"]
+	path = site-lisp/pkg/emacs-application-framework
+	url = https://github.com/emacs-eaf/emacs-application-framework.git
+[submodule "site-lisp/pkg/vi-navigate"]
+	path = site-lisp/pkg/vi-navigate
+	url = https://github.com/manateelazycat/vi-navigate.git
+[submodule "site-lisp/pkg/isearch-mb"]
+	path = site-lisp/pkg/isearch-mb
+	url = https://github.com/astoff/isearch-mb.git
+[submodule "site-lisp/pkg/emacs-rime"]
+	path = site-lisp/pkg/emacs-rime
+	url = https://github.com/DogLooksGood/emacs-rime.git
+[submodule "site-lisp/pkg/olivetti"]
+	path = site-lisp/pkg/olivetti
+	url = https://github.com/rnkn/olivetti.git
+[submodule "site-lisp/pkg/pangu-spacing"]
+	path = site-lisp/pkg/pangu-spacing
+	url = https://github.com/coldnew/pangu-spacing.git
+[submodule "site-lisp/pkg/deno-bridge-jieba"]
+	path = site-lisp/pkg/deno-bridge-jieba
+	url = https://github.com/ginqi7/deno-bridge-jieba.git
+[submodule "site-lisp/pkg/deno-bridge"]
+	path = site-lisp/pkg/deno-bridge
+	url = https://github.com/manateelazycat/deno-bridge.git
+[submodule "site-lisp/pkg/emacs-websocket"]
+	path = site-lisp/pkg/emacs-websocket
+	url = https://github.com/ahyatt/emacs-websocket.git
+[submodule "site-lisp/pkg/sort-tab"]
+	path = site-lisp/pkg/sort-tab
+	url = https://github.com/manateelazycat/sort-tab.git
+[submodule "site-lisp/pkg/color-rg"]
+	path = site-lisp/pkg/color-rg
+	url = https://github.com/manateelazycat/color-rg.git
+[submodule "site-lisp/pkg/symbol-overlay"]
+	path = site-lisp/pkg/symbol-overlay
+	url = https://github.com/wolray/symbol-overlay.git
+[submodule "site-lisp/pkg/blink-search"]
+	path = site-lisp/pkg/blink-search
+	url = https://github.com/manateelazycat/blink-search.git
+[submodule "site-lisp/pkg/aweshell"]
+	path = site-lisp/pkg/aweshell
+	url = https://github.com/manateelazycat/aweshell.git
+[submodule "site-lisp/pkg/smart-align"]
+	path = site-lisp/pkg/smart-align
+	url = https://github.com/manateelazycat/smart-align.git
+[submodule "site-lisp/pkg/iedit"]
+	path = site-lisp/pkg/iedit
+	url = https://github.com/victorhge/iedit.git
+[submodule "site-lisp/pkg/projectile"]
+	path = site-lisp/pkg/projectile
+	url = https://github.com/bbatsov/projectile.git
+[submodule "site-lisp/pkg/projectile-rails"]
+	path = site-lisp/pkg/projectile-rails
+	url = https://github.com/asok/projectile-rails.git

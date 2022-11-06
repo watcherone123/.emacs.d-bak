@@ -1,6 +1,6 @@
 (defun add-subdirs-to-load-path (search-dir)
   (interactive)
-  
+
   (let* ((dir (file-name-as-directory search-dir)))
     (dolist (subdir
              ;; 过滤出不必要的目录，提升Emacs启动速度
@@ -31,3 +31,4 @@
 (add-subdirs-to-load-path "~/.emacs.d/site-lisp")
 
 (require 'init-config)
+
