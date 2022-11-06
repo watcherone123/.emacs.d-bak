@@ -1,19 +1,16 @@
-;;; Require
-(require 'eaf)
-(require 'eaf-file-manager)
+(require 'one-key)
 
-;;; Code:
+(setq one-key-popup-window nil)
 
-(one-key-create-menu
- "DIRECTORY"
- '(
-   (("h" . "Home") . (lambda () (interactive) (eaf-open-in-file-manager "~/")))
-   (("b" . "Book") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Book")))
-   (("j" . "Picture") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Picture")))
-   (("m" . "Music") . (lambda () (interactive) (eaf-open-in-file-manager "/data/Music")))
-   (("c" . "Config") . (lambda () (interactive) (eaf-open-in-file-manager lazycat-emacs-config-dir)))
-   ((";" . "Extension") . (lambda () (interactive) (eaf-open-in-file-manager "~/.emacs.d")))
-   )
- t)
+;;;###autoload
+(defmacro lazy-one-key-create-menu (title &rest keybinds)
+  (let (one-key-key-alist)
+    (dolist (ele keybinds)
+      (autoload (plist-get ele :command) (plist-get ele :filename) nil t)
+      (push
+       (cons (cons (plist-get ele :key) (plist-get ele :description)) (plist-get ele :command))
+       one-key-key-alist))
+    `(one-key-create-menu ,title (quote ,one-key-key-alist))))
+
 
 (provide 'init-one-key)

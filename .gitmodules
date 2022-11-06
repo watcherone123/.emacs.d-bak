@@ -85,3 +85,18 @@
 [submodule "site-lisp/pkg/projectile-rails"]
 	path = site-lisp/pkg/projectile-rails
 	url = https://github.com/asok/projectile-rails.git
+[submodule "site-lisp/pkg/json-mode"]
+	path = site-lisp/pkg/json-mode
+	url = https://github.com/joshwnj/json-mode.git
+[submodule "site-lisp/pkg/json-snatcher"]
+	path = site-lisp/pkg/json-snatcher
+	url = https://github.com/Sterlingg/json-snatcher.git
+[submodule "site-lisp/pkg/popweb"]
+	path = site-lisp/pkg/popweb
+	url = https://github.com/manateelazycat/popweb.git
+[submodule "site-lisp/pkg/meow"]
+	path = site-lisp/pkg/meow
+	url = https://github.com/meow-edit/meow.git
+[submodule "site-lisp/pkg/vundo"]
+	path = site-lisp/pkg/vundo
+	url = https://github.com/casouri/vundo.git

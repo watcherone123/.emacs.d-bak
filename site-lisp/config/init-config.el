@@ -16,6 +16,8 @@
 
   (require 'lazy-load)
   (require 'one-key)
+  (require 'meow)
+  (require 'init-window)
   (require 'grammatical-edit)
   (require 'display-line-numbers)
   (require 'basic-toolkit)
@@ -31,6 +33,7 @@
   (require 'init-indent)
   (require 'init-one-key)
   (require 'init-key)
+  (require 'init-meow)
   (require 'init-vi-navigate)
   (require 'init-isearch-mb)
   (require 'init-performance)
