@@ -1,4 +1,4 @@
-;;; init.el --- Config for highlight-parentheses-mode. -*- lexical-binding: t -*-
+;;; init-format.el --- formatconfiguration. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022-2023 watcherone123
 
@@ -25,18 +25,13 @@
 
 ;;; Commentary:
 ;;
-;; Config for highlight-parentheses-mode
+;; format configuration
 ;;
 
 ;;; Code:
 
-
-;;; Require
-(require 'highlight-parentheses)
-
-;;; Code:
-(setq hl-paren-colors '("DarkOrange" "DeepSkyBlue" "DarkRed"))
-
-(provide 'init-highlight-parentheses)
-
-;;; init-highlight-parentheses.el ends here
+(require 'apheleia)
+(apheleia-global-mode +1)
+;; (setf (alist-get 'prettier apheleia-formatters)
+;;       '("prettier" "--stdin-filepath"  "| cat" buffer-file-name))
+(provide 'init-apheleia)

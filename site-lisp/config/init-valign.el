@@ -1,4 +1,4 @@
-;;; init.el --- Config for highlight-parentheses-mode. -*- lexical-binding: t -*-
+;;; init-valign.el  --- Configure for valign. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022-2023 watcherone123
 
@@ -25,18 +25,13 @@
 
 ;;; Commentary:
 ;;
-;; Config for highlight-parentheses-mode
+;; Configure for valign
 ;;
 
 ;;; Code:
 
+(require 'valign)
+(add-hook 'org-mode-hook #'valign-mode)
 
-;;; Require
-(require 'highlight-parentheses)
-
-;;; Code:
-(setq hl-paren-colors '("DarkOrange" "DeepSkyBlue" "DarkRed"))
-
-(provide 'init-highlight-parentheses)
-
-;;; init-highlight-parentheses.el ends here
+(provide 'init-valign)
+;;; init-valign.el ends here

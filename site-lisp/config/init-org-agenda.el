@@ -1,4 +1,5 @@
-;;; init.el --- Config for highlight-parentheses-mode. -*- lexical-binding: t -*-
+
+;;; init-org-agenda.el  --- init-org-agenda setup. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022-2023 watcherone123
 
@@ -25,18 +26,12 @@
 
 ;;; Commentary:
 ;;
-;; Config for highlight-parentheses-mode
+;; init-org-agenda setup
 ;;
 
 ;;; Code:
 
-
-;;; Require
-(require 'highlight-parentheses)
-
-;;; Code:
-(setq hl-paren-colors '("DarkOrange" "DeepSkyBlue" "DarkRed"))
-
-(provide 'init-highlight-parentheses)
-
-;;; init-highlight-parentheses.el ends here
+(require 'org-agenda)
+(defun +sky/setup-org-agenda ()
+  (setq org-agenda-files '("~/Docs/org")))
+(provide 'init-org-agenda)

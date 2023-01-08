@@ -100,3 +100,48 @@
 [submodule "site-lisp/pkg/vundo"]
 	path = site-lisp/pkg/vundo
 	url = https://github.com/casouri/vundo.git
+[submodule "site-lisp/pkg/gcmh"]
+	path = site-lisp/pkg/gcmh
+	url = https://github.com/emacsmirror/gcmh
+[submodule "site-lisp/pkg/ws-butler"]
+	path = site-lisp/pkg/ws-butler
+	url = https://github.com/lewang/ws-butler.git
+[submodule "site-lisp/pkg/valign"]
+	path = site-lisp/pkg/valign
+	url = https://github.com/casouri/valign.git
+[submodule "site-lisp/pkg/org-modern"]
+	path = site-lisp/pkg/org-modern
+	url = https://github.com/minad/org-modern.git
+[submodule "site-lisp/pkg/pinyinlib.el"]
+	path = site-lisp/pkg/pinyinlib.el
+	url = https://github.com/cute-jumper/pinyinlib.el.git
+[submodule "site-lisp/pkg/swiper"]
+	path = site-lisp/pkg/swiper
+	url = https://github.com/abo-abo/swiper.git
+[submodule "site-lisp/pkg/amx"]
+	path = site-lisp/pkg/amx
+	url = https://github.com/DarwinAwardWinner/amx.git
+[submodule "site-lisp/pkg/Emacs-wgrep"]
+	path = site-lisp/pkg/Emacs-wgrep
+	url = https://github.com/mhayashi1120/Emacs-wgrep.git
+[submodule "site-lisp/pkg/s.el"]
+	path = site-lisp/pkg/s.el
+	url = https://github.com/magnars/s.el.git
+[submodule "site-lisp/pkg/dash"]
+	path = site-lisp/pkg/dash
+	url = https://github.com/magnars/dash.el.git
+[submodule "site-lisp/pkg/posframe"]
+	path = site-lisp/pkg/posframe
+	url = https://github.com/tumashu/posframe.git
+[submodule "site-lisp/pkg/apheleia"]
+	path = site-lisp/pkg/apheleia
+	url = https://github.com/radian-software/apheleia.git
+[submodule "site-lisp/pkg/vimish-fold"]
+	path = site-lisp/pkg/vimish-fold
+	url = https://github.com/matsievskiysv/vimish-fold.git
+[submodule "site-lisp/pkg/fanyi.el"]
+	path = site-lisp/pkg/fanyi.el
+	url = https://github.com/condy0919/fanyi.el.git
+[submodule "site-lisp/pkg/emacs-crow"]
+	path = site-lisp/pkg/emacs-crow
+	url = https://github.com/EvanMeek/emacs-crow.git

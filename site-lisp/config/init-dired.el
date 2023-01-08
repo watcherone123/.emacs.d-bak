@@ -1,4 +1,5 @@
-;;; init.el --- Config for highlight-parentheses-mode. -*- lexical-binding: t -*-
+
+;;; init-dired.el --- Config for dired-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022-2023 watcherone123
 
@@ -25,18 +26,13 @@
 
 ;;; Commentary:
 ;;
-;; Config for highlight-parentheses-mode
+;; Config for dired
 ;;
 
-;;; Code:
+(add-hook 'dired-mode-hook (lambda ()
+			     (setq dired-dwim-target t)
+			     (define-key dired-mode-map (kbd "C-i") 'dired-up-directory)
+			     (define-key dired-mode-map (kbd "C-d" ) 'dired-do-flagged-delete)))
 
 
-;;; Require
-(require 'highlight-parentheses)
-
-;;; Code:
-(setq hl-paren-colors '("DarkOrange" "DeepSkyBlue" "DarkRed"))
-
-(provide 'init-highlight-parentheses)
-
-;;; init-highlight-parentheses.el ends here
+(provide 'init-dired)

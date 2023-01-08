@@ -1,4 +1,5 @@
-;;; init.el --- Config for highlight-parentheses-mode. -*- lexical-binding: t -*-
+
+;;; init-dirvish.el --- Config for dirvish-*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022-2023 watcherone123
 
@@ -25,18 +26,30 @@
 
 ;;; Commentary:
 ;;
-;; Config for highlight-parentheses-mode
+;; Config for dirvish
 ;;
 
-;;; Code:
+(require 'dirvish)
+(require 'dirvish-side)
+(dirvish-override-dired-mode)
+(lazy-load-set-keys '(("h" . dired-up-directory)
+		      ("l" . dired-find-file))
+		    dirvish-mode-map)
 
+(add-hook 'dirvish-mode-hook (lambda ()
+			       (+sky/meow-add-motion-mode-alist 'dired-mode)
+			       (meow-define-keys
+				   'motion
+				 '("h" . dired-up-directory)
+				 '("l" . dired-find-file)
+				 '("x" . dired-do-flagged-delete)
+				 )))
 
-;;; Require
-(require 'highlight-parentheses)
+(defun +sky/dirvish-side-current-path ()
+  (interactive)
+  (dirvish-side (buffer-file-name)))
 
-;;; Code:
-(setq hl-paren-colors '("DarkOrange" "DeepSkyBlue" "DarkRed"))
+;; FACE
+;; (set-face-background 'dirvish-hl-line (face-background 'default))
 
-(provide 'init-highlight-parentheses)
-
-;;; init-highlight-parentheses.el ends here
+(provide 'init-dirvish)

@@ -1,17 +1,17 @@
-;;; init-markdown-mode.el --- Configure for markdown mode.
+;;; init-olivetti.el --- Config for olivetti   -*- lexical-binding: t; -*-
 
-;; Filename: init-markdown-mode.el
-;; Description: Configure for markdown mode.
+;; Filename: init-olivetti.el
+;; Description: Config for olivetti
 ;; Author: Andy Stewart <lazycat.manatee@gmail.com>
 ;; Maintainer: Andy Stewart <lazycat.manatee@gmail.com>
-;; Copyright (C) 2019, Andy Stewart, all rights reserved.
-;; Created: 2019-09-22 08:25:25
+;; Copyright (C) 2022, Andy Stewart, all rights reserved.
+;; Created: 2022-11-17 21:57:57
 ;; Version: 0.1
-;; Last-Updated: 2019-09-22 08:25:25
+;; Last-Updated: 2022-11-17 21:57:57
 ;;           By: Andy Stewart
-;; URL: http://www.emacswiki.org/emacs/download/init-markdown-mode.el
+;; URL: https://www.github.org/manateelazycat/init-olivetti
 ;; Keywords:
-;; Compatibility: GNU Emacs 26.3
+;; Compatibility: GNU Emacs 28.2
 ;;
 ;; Features that might be required by this library:
 ;;
@@ -39,19 +39,19 @@
 
 ;;; Commentary:
 ;;
-;; Configure for markdown mode.
+;; Config for olivetti
 ;;
 
 ;;; Installation:
 ;;
-;; Put init-markdown-mode.el to your load-path.
+;; Put init-olivetti.el to your load-path.
 ;; The load-path is usually ~/elisp/.
 ;; It's set in your ~/.emacs like this:
 ;; (add-to-list 'load-path (expand-file-name "~/elisp"))
 ;;
 ;; And the following to your ~/.emacs startup file.
 ;;
-;; (require 'init-markdown-mode)
+;; (require 'init-olivetti)
 ;;
 ;; No need more.
 
@@ -60,12 +60,12 @@
 ;;
 ;;
 ;; All of the above can customize by:
-;;      M-x customize-group RET init-markdown-mode RET
+;;      M-x customize-group RET init-olivetti RET
 ;;
 
 ;;; Change log:
 ;;
-;; 2019/09/22
+;; 2022/11/17
 ;;      * First released.
 ;;
 
@@ -80,31 +80,31 @@
 ;;
 
 ;;; Require
-(require 'markdown-mode)
-(require 'pangu-spacing)
-(require 'deno-bridge-jieba)
-
-(lazy-load-set-keys
- '(
-   ("M-f" . deno-bridge-jieba-forward-word)
-   ("M-b" . deno-bridge-jieba-backward-word)
-   ("M-M" . deno-bridge-jieba-kill-word)
-   ("M-N" . deno-bridge-jieba-backward-kill-word)
-   )
- markdown-mode-map)
+(require 'olivetti)
 
 ;;; Code:
 
-(global-pangu-spacing-mode 1)
-
 (dolist (hook (list
-               'markdown-mode-hook
+               'Info-mode-hook
+               'rcirc-mode-hook
                ))
   (add-hook hook
             #'(lambda ()
-                (set (make-local-variable 'pangu-spacing-real-insert-separtor) t)
+                (olivetti-mode 1)
+                (olivetti-set-width 120)
                 )))
 
-(provide 'init-markdown-mode)
+(dolist (hook (list
+               'markdown-mode-hook
+               'org-mode-hook
+               ))
+  (add-hook hook
+            #'(lambda ()
+                (when (buffer-file-name)
+                  (unless (string-prefix-p "README" (file-name-base (buffer-file-name)))
+                   (olivetti-mode 1)
+                   (olivetti-set-width 120))))))
 
-;;; init-markdown-mode.el ends here
+(provide 'init-olivetti)
+
+;;; init-olivetti.el ends here

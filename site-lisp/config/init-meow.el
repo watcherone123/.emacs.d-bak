@@ -5,15 +5,6 @@
 (setq meow-keypad-start-keys '(;; (?c . ?c)
 			       (?h . ?h) (?x . ?x)))
 
-;; (setq meow-local-leader-keymap (make-sparse-keymap))
-
-(setq +sky/meow-motion-mode-alist nil) ; 为motion特殊处理过的mode列表
-
-(defun +sky/meow-add-motion-mode-alist (mode)
-  (unless (-contains-p +sky/meow-motion-mode-alist mode)
-    (push mode +sky/meow-motion-mode-alist)))
-
-
 (defun lazy-meow-leader-define-key (&rest keybinds)
   (let* ((meow-leader-keybinds))
     (dolist (ele  keybinds)
@@ -22,9 +13,9 @@
 	    (filename (cadr ele)))
 	(autoload func filename nil t)
 	(meow-define-keys 'leader (cons key func))))))
+(setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
 
 (defun meow-setup ()
-  (setq meow-cheatsheet-layout 'meow-cheatsheet-layout-qwerty)
   (meow-motion-overwrite-define-key
    '("j" . meow-next)
    '("k" . meow-prev)
@@ -51,7 +42,7 @@
    '("c" . one-key-menu-code)
    '("u" . one-key-menu-useful)
    '("g" . one-key-menu-nagivator)
-   '("p" . one-key-menu-project)
+   '("p" . one-key-menzu-project)
    '("v" . one-key-menu-magit)
    '("o" . one-key-menu-org)
    ;; Use SPC (0-9) for digit arguments.
@@ -74,10 +65,9 @@
   (lazy-meow-leader-define-key
    '(("w" . one-key-menu-window) "init-window")
    '(("p" . one-key-menu-project)  "init-project")
-   '(("TAB" . one-key-menu-sort-tab) "init-sort-tab")
    '(("e" . one-key-menu-eaf) "init-eaf")
    '(("n" . one-key-menu-blog) "init-org")
-   '(("Z" . one-key-menu-hs) "init-hideshow")
+   '(("F" . one-key-menu-fold) "init-vimish-fold")
    '(("r" . +sky/project-recentf) "init-project")
    )
   
@@ -102,10 +92,10 @@
    '("1" . meow-expand-1)
    '("-" . negative-argument)
    '(";" . meow-reverse)
-   '("C-i" . meow-inner-of-thing)
-   '("C-o" . meow-bounds-of-thing)
-   '("C-9" . meow-beginning-of-thing)
-   '("C-0" . meow-end-of-thing)
+   '("," . meow-inner-of-thing)
+   '("." . meow-bounds-of-thing)
+   '("[" . meow-beginning-of-thing)
+   '("]" . meow-end-of-thing)
    '("a" . meow-append)
    '("A" . meow-open-below)
    '("b" . meow-back-word)
@@ -166,12 +156,5 @@
    '("'" . repeat)
    '("<escape>" . ignore)))
 
-
-(add-hook 'meow-motion-mode-hook (lambda ()
-				   ;; 当当前主模式不在特殊 motion特殊处理过的mode列表中时才重新setup meow的按键
-				   (unless (-contains-p +sky/meow-motion-mode-alist major-mode)
-				     (meow-setup))))
-
 (meow-setup)
-
 (provide 'init-meow)

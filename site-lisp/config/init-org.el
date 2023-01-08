@@ -84,6 +84,32 @@
 
 ;;; Code:
 
+(require 'org)
+(require 'org-modern)
+(require 'init-valign)
+(require 'init-org-agenda)
+(require 'init-org-capture)
+
+(setq org-todo-keywords '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" "KILL(k)")))
+
+(let ((faces '(("TODO" . (:foreground "#fbf7f0" :background "#006800"))
+	       ("WAIT" . (:foreground "#fbf7f0" :background "#f5d0a0"))
+	       ("DONE" . (:foreground "black" :background "gray90"))
+	       ("KILL" . (:foreground "#fbf7f0" :background "#a60000")))))
+  (setq org-modern-todo-faces faces)
+  (setq org-todo-keyword-faces faces))
+
+
+(autoload '+sky/setup-org-capture "init-org-capture")
+(autoload '+sky/setup-org-agenda "init-org-agenda")
+
+(add-hook 'org-mode-hook
+	  (lambda ()
+	    (global-org-modern-mode +1)))
+
+(+sky/setup-org-agenda)
+(+sky/setup-org-capture)
+
 (with-eval-after-load 'org
   (setq org-odt-preferred-output-format "docx") ;ODT转换格式默认为docx
   (setq org-startup-folded nil)                 ;默认展开内容
@@ -124,15 +150,15 @@
   (set-frame-font (format "%s-%s" (eval emacs-font-name) (eval emacs-font-size)))
   (set-fontset-font (frame-parameter nil 'font) 'unicode (eval emacs-font-name)))
 
-(with-eval-after-load 'org
-  (defun org-buffer-face-mode-variable ()
-    (interactive)
-    (make-face 'width-font-face)
-    (set-face-attribute 'width-font-face nil :font "等距更纱黑体 SC 15")
-    (setq buffer-face-mode-face 'width-font-face)
-    (buffer-face-mode))
+;; (with-eval-after-load 'org
+;;   (defun org-buffer-face-mode-variable ()
+;;     (interactive)
+;;     (make-face 'width-font-face)
+;;     (set-face-attribute 'width-font-face nil :font "等距更纱黑体 SC 15")
+;;     (setq buffer-face-mode-face 'width-font-face)
+;;     (buffer-face-mode))
 
-  (add-hook 'org-mode-hook 'org-buffer-face-mode-variable))
+;;   (add-hook 'org-mode-hook 'org-buffer-face-mode-variable))
 
 (provide 'init-org)
 

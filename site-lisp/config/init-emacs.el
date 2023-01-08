@@ -1,12 +1,15 @@
 ;;;###autoload
-(defun +sky/find-emacs-config()
+(defun +sky/find-emacs-config ()
   (interactive)
-  (counsel-find-file (expand-file-name "~/.emacs.d/site-lisp/config")))
+  (find-file (read-file-name "📂: " (expand-file-name "~/.emacs.d/site-lisp/config/"))))
 
 ;;;###autoload
-(defun +sky/reload-load-path ()
+(defun +evan/reload-load-path ()
   (interactive)
-  (add-subdirs-to-load-path "~/.emacs.d/"))
+  (let ((default-directory "~/.emacs.d/site-lisp")
+	(gc-cons-threshold most-positive-fixnum)
+	(gc-cons-percentage 0.6))
+    (normal-top-level-add-subdirs-to-load-path)))
 
 (defun +sky/find-emacs-config-2()
   (interactive)

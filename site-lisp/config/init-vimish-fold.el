@@ -1,4 +1,4 @@
-;;; init.el --- Config for highlight-parentheses-mode. -*- lexical-binding: t -*-
+;;; init-vimish-fold.el  --- Configure for vimish-fold.. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022-2023 watcherone123
 
@@ -25,18 +25,15 @@
 
 ;;; Commentary:
 ;;
-;; Config for highlight-parentheses-mode
+;; Configure for vimish-fold.
 ;;
 
 ;;; Code:
 
 
-;;; Require
-(require 'highlight-parentheses)
+(require 'vimish-fold)
+(vimish-fold-global-mode t)
 
-;;; Code:
-(setq hl-paren-colors '("DarkOrange" "DeepSkyBlue" "DarkRed"))
-
-(provide 'init-highlight-parentheses)
-
-;;; init-highlight-parentheses.el ends here
+(one-key-create-menu "fold"
+		     '((("t" . "Toggle fold") . vimish-fold-toggle)
+		       (("d" . "Delete fold") . vimish-fold-delete)))

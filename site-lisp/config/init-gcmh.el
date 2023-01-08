@@ -1,4 +1,4 @@
-;;; init.el --- Config for highlight-parentheses-mode. -*- lexical-binding: t -*-
+;;; init-gcmh.el --- the Garbage Collector Magic Hack configuration. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022-2023 watcherone123
 
@@ -25,18 +25,12 @@
 
 ;;; Commentary:
 ;;
-;; Config for highlight-parentheses-mode
+;; the Garbage Collector Magic Hack configuration
 ;;
 
 ;;; Code:
 
 
-;;; Require
-(require 'highlight-parentheses)
-
-;;; Code:
-(setq hl-paren-colors '("DarkOrange" "DeepSkyBlue" "DarkRed"))
-
-(provide 'init-highlight-parentheses)
-
-;;; init-highlight-parentheses.el ends here
+(require 'gcmh)
+(gcmh-mode t)
+(provide 'init-gcmh)
