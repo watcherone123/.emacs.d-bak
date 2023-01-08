@@ -108,4 +108,11 @@
 (lazy-load-global-keys '(("C-x m" . embark-act))
 		       "init-embark")
 
+;;; --- 帮助模式
+(lazy-load-global-keys
+ '(
+   ("C-h". one-key-menu-help)           ;帮助菜单
+   )
+ "init-help-mode")
+ 
 (provide 'init-key)
