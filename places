@@ -1,5 +1,0 @@
-;;; -*- coding: utf-8; mode: lisp-data -*-
-(("/home/sky/.emacs.d/"
-  (dired-filename . "/home/sky/.emacs.d/early-init.el"))
- ("/home/sky/.emacs.d/early-init.el" . 461)
- ("/home/sky/.emacs.d/init.el" . 585))
