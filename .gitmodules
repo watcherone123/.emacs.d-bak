@@ -145,3 +145,6 @@
 [submodule "site-lisp/pkg/emacs-crow"]
 	path = site-lisp/pkg/emacs-crow
 	url = https://github.com/EvanMeek/emacs-crow.git
+[submodule "site-lisp/pkg/gn-mode"]
+	path = site-lisp/pkg/gn-mode
+	url = https://github.com/lashtear/gn-mode.git
