@@ -39,15 +39,14 @@
       ;; 清空避免加载远程文件的时候分析文件。
       (file-name-handler-alist nil))
 
-    ;; 定义一些启动目录，方便下次迁移修改
-    (defvar sky-emacs-root-dir (file-truename "~/.emacs.d/site-lisp"))
-    (defvar sky-emacs-config-dir (concat sky-emacs-root-dir "/config"))
-    (defvar sky-emacs-extension-dir (concat sky-emacs-root-dir "/pkg"))
+  ;; 定义一些启动目录，方便下次迁移修改
+  (defvar sky-emacs-root-dir (file-truename "~/.emacs.d/site-lisp"))
+  (defvar sky-emacs-config-dir (concat sky-emacs-root-dir "/config"))
+  (defvar sky-emacs-extension-dir (concat sky-emacs-root-dir "/pkg"))
 
   (with-temp-message ""              ;抹掉插件启动的输出
 
-    ;;(require 'init-fullscreen)
-
+    ;; (require 'init-fullscreen)
     (require 'init-generic)
     (require 'lazycat-theme)
     ;; (lazycat-theme-load-with-sunrise)
@@ -68,7 +67,6 @@
     (require 'init-grammatical-edit)
     (require 'init-one-key)
     (require 'init-rime)
-   
     ;; 可以延后加载的
     (run-with-idle-timer
      1 nil
@@ -96,9 +94,11 @@
          (require 'init-olivetti)
 
          (require 'init-eaf)
-        ;;  (require 'init-popweb)
-
+         ;;  (require 'init-popweb)
+         ;; Restore session at last.
+         (require 'init-session)
+         (emacs-session-restore)
          (require 'init-sort-tab)
-         ))))
 
+         ))))
 (provide 'init)

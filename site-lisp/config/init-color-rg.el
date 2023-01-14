@@ -1,4 +1,4 @@
-q;;; init-color-rg.el --- color-rg configuration. -*- lexical-binding: t -*-
+;;; init-color-rg.el --- color-rg configuration. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022-2023 watcherone123
 
@@ -33,4 +33,15 @@ q;;; init-color-rg.el --- color-rg configuration. -*- lexical-binding: t -*-
 (require 'color-rg)
 
 (add-hook 'color-rg-mode-hook #'meow-insert)
+
+(one-key-create-menu
+ "color-rg"
+ '((("s" . "search symbol") . color-rg-search-symbol)
+   (("i" . "search input") . color-rg-search-input)
+   (("j" . "search symbol in project") . color-rg-search-symbol-in-project)
+   (("k" . "search input in project") . color-rg-search-input-in-project)
+   (("," . "search symbol in file") . color-rg-search-symbol-in-current-file)
+   (("." . "search input in file") . color-rg-search-input-in-current-file)
+   ))
+
 (provide 'init-color-rg)

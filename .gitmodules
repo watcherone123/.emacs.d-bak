@@ -145,3 +145,9 @@
 [submodule "site-lisp/pkg/emacs-crow"]
 	path = site-lisp/pkg/emacs-crow
 	url = https://github.com/EvanMeek/emacs-crow.git
+[submodule "site-lisp/pkg/esup"]
+	path = site-lisp/pkg/esup
+	url = https://github.com/jschaf/esup.git
+[submodule "site-lisp/pkg/duplicate-line"]
+	path = site-lisp/pkg/duplicate-line
+	url = https://github.com/manateelazycat/duplicate-line.git
