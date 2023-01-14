@@ -151,3 +151,7 @@
 [submodule "site-lisp/pkg/duplicate-line"]
 	path = site-lisp/pkg/duplicate-line
 	url = https://github.com/manateelazycat/duplicate-line.git
+[submodule "site-lisp/pkg/gn-mode"]
+	path = site-lisp/pkg/gn-mode
+	url = https://github.com/lashtear/gn-mode.git
+

@@ -125,6 +125,8 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.json$" . json-mode)
                     ("\\.clj$" . clojure-mode)
                     ("\\.dart$" . dart-mode)
+                    ("\\.gn$" . gn-mode)
+                    ("\\.gni$" . gn-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
@@ -161,10 +163,11 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'json-mode "json-mode")
 (autoload 'clojure-mode "clojure-mode")
 (autoload 'dart-mode "dart-mode")
+(autoload 'gn-mode   "gn-mode")
 
 ;;; ### Auto-fill ###
 ;;; --- 自动换行
-(setq default-fill-column 100)          ;默认显示 100列就换行
+(setq default-fill-column 100)         ;默认显示 100列就换行
 (dolist (hook (list
                'after-text-mode-hook
                'message-mode-hook
