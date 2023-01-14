@@ -42,9 +42,11 @@
    '("c" . one-key-menu-code)
    '("u" . one-key-menu-useful)
    '("g" . one-key-menu-nagivator)
-   '("p" . one-key-menzu-project)
+   '("p" . one-key-menu-project)
    '("v" . one-key-menu-magit)
    '("o" . one-key-menu-org)
+   '("q" . one-key-menu-quit)
+   '("w" . one-key-menu-window)
    ;; Use SPC (0-9) for digit arguments.
    '("1" . meow-digit-argument)
    '("2" . meow-digit-argument)
@@ -63,7 +65,6 @@
    )
 
   (lazy-meow-leader-define-key
-   '(("w" . one-key-menu-window) "init-window")
    '(("p" . one-key-menu-project)  "init-project")
    '(("e" . one-key-menu-eaf) "init-eaf")
    '(("n" . one-key-menu-blog) "init-org")

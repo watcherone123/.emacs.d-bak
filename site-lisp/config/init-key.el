@@ -27,6 +27,10 @@
    (("C-k" . "Scroll other window up") . scroll-other-window-down)
    (("C-j" . "Scroll other window down") . scroll-other-window)))
 
+(lazy-one-key-create-menu "Quit"
+                          (:key "q" :description "Quit Emacs save session" :command emacs-session-save :filename "init-session")
+                          )
+
 (lazy-one-key-create-menu "File"
                           (:key "s" :description "Save buffer" :command save-buffer :filename "")
                           (:key "d" :description "Drivish" :command dirvish :filename "init-dirvish")
