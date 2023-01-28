@@ -155,6 +155,3 @@
 [submodule "site-lisp/pkg/websocket-bridge"]
 	path = site-lisp/pkg/websocket-bridge
 	url = https://github.com/ginqi7/websocket-bridge.git
-[submodule "site-lisp/pkg/window-numbering"]
-	path = site-lisp/pkg/window-numbering
-	url = https://github.com/nschum/window-numbering.el.git

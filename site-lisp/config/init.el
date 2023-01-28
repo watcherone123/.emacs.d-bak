@@ -82,7 +82,7 @@
          (require 'init-meow)
          (require 'init-key)
 
-         (require 'init-tree-sitter)
+        ;;  (require 'init-tree-sitter)
          (require 'init-eldoc)
          (require 'init-yasnippet)
          (require 'init-cursor-chg)

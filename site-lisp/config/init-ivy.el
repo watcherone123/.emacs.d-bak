@@ -38,7 +38,6 @@
 (ivy-mode t)
 (amx-mode t)				;
 
-(require 'wgrep)
 (setq-default ivy-use-virtual-buffers nil
 	      ivy-height 25)
 
