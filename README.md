@@ -8,6 +8,8 @@ git clone git@github.com:watcherone123/.emacs.d.git ~/.emacs.d
 ```
 cd ~/.emacs.d
 git submodule update --init --recursive
+git submodule foreach git reset --hard
+git submodule foreach git checkout master
 ```
 # linux安装
 1. 安装字体
