@@ -43,7 +43,7 @@
    '("u" . one-key-menu-useful)
    '("g" . one-key-menu-nagivator)
    '("p" . one-key-menu-project)
-   '("v" . one-key-menu-magit)
+   '("v" . one-key-menu-git)
    '("o" . one-key-menu-org)
    '("q" . one-key-menu-quit)
    '("w" . one-key-menu-window)

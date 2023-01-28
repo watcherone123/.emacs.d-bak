@@ -89,10 +89,10 @@
                           (:key "s" :description "EAF Search" :command eaf-search-it  :filename "init-eaf")
                           )
 
-(lazy-one-key-create-menu "Magit"
-                          (:key "v" :description "Open Magit" :command magit :filename "init-magit")
-                          (:key "l" :description "Yank git link with current line." :command git-link :filename "git-link")
-                          )
+;; (lazy-one-key-create-menu "Magit"
+;;                           (:key "v" :description "Open Magit" :command magit :filename "init-magit")
+;;                           (:key "l" :description "Yank git link with current line." :command git-link :filename "git-link")
+;;                           )
 
 (lazy-one-key-create-menu "Useful"
                           (:key "u" :description "Translate region" :command gts-do-translate :filename "init-go-translate")
