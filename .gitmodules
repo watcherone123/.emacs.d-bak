@@ -118,9 +118,6 @@
 [submodule "site-lisp/pkg/amx"]
 	path = site-lisp/pkg/amx
 	url = https://github.com/DarwinAwardWinner/amx.git
-[submodule "site-lisp/pkg/Emacs-wgrep"]
-	path = site-lisp/pkg/Emacs-wgrep
-	url = https://github.com/mhayashi1120/Emacs-wgrep.git
 [submodule "site-lisp/pkg/s.el"]
 	path = site-lisp/pkg/s.el
 	url = https://github.com/magnars/s.el.git
