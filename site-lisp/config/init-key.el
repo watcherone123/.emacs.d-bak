@@ -1,4 +1,5 @@
 (global-set-key (kbd "C-x C-r") #'restart-emacs)
+
 (lazy-one-key-create-menu "Toggle"
                           (:key "F" :description "Toggle bit font" :command +sky/toggle-big-font :filename "init-font")
                           (:key "p" :description "Toggle proxy" :command +sky/toggle-proxy :filename "init-emacs")
@@ -101,6 +102,8 @@
                           (:key "S" :description "Sudo edit" :command sudo-edit :filename "init-sudo-edit")
                           (:key "i" :description "Counsel tips" :command one-key-menu-counsel :filename "init-ivy")
                           (:key "1" :description "Profiler start" :command profiler-start :filename "profiler")
+                          (:key ";" :description "popweb-dict-bing" :command popweb-dict-bing-input :filename "init-popweb")
+                          (:key "y" :description "translate-and-mark-unknown-word" :command popweb-translate-and-mark-unknown-word :filename "init-popweb")
                           )
 
 (lazy-one-key-create-menu "Org"

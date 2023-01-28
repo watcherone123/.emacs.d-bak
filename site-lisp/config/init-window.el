@@ -28,6 +28,7 @@
 ;; Configure for window
 ;;
 
+(require 'window-numbering)
 ;;; Code:
 
 ;; 窗口移动
@@ -41,4 +42,8 @@
       window-divider-default-bottom-width 2)
 
 (window-divider-mode t)
+(window-numbering-mode t)
+
+(setq window-numbering-assign-func
+      (lambda () (when (equal (buffer-name) "*Calculator*") 9)))
 (provide 'init-window)

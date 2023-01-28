@@ -49,9 +49,6 @@
 [submodule "site-lisp/pkg/pangu-spacing"]
 	path = site-lisp/pkg/pangu-spacing
 	url = https://github.com/coldnew/pangu-spacing.git
-[submodule "site-lisp/pkg/deno-bridge-jieba"]
-	path = site-lisp/pkg/deno-bridge-jieba
-	url = https://github.com/ginqi7/deno-bridge-jieba.git
 [submodule "site-lisp/pkg/deno-bridge"]
 	path = site-lisp/pkg/deno-bridge
 	url = https://github.com/manateelazycat/deno-bridge.git
@@ -155,3 +152,12 @@
 	path = site-lisp/pkg/gn-mode
 	url = https://github.com/lashtear/gn-mode.git
 
+[submodule "site-lisp/pkg/dictionary-overlay"]
+	path = site-lisp/pkg/dictionary-overlay
+	url = https://github.com/ginqi7/dictionary-overlay.git
+[submodule "site-lisp/pkg/websocket-bridge"]
+	path = site-lisp/pkg/websocket-bridge
+	url = https://github.com/ginqi7/websocket-bridge.git
+[submodule "site-lisp/pkg/window-numbering"]
+	path = site-lisp/pkg/window-numbering
+	url = https://github.com/nschum/window-numbering.el.git

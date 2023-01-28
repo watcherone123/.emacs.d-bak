@@ -80,15 +80,38 @@
 ;;
 
 ;;; Require
-(require 'popweb-dict-bing)
-(require 'popweb-dict-youdao)
+(require 'popweb-dict)
+(require 'eww)
+(require 'dictionary-overlay)
 
 ;;; Code:
 
-(setq popweb-proxy-type "socks5")
-(setq popweb-proxy-host "127.0.0.1")
-(setq popweb-proxy-port "1080")
+(dictionary-overlay-start)
+
+(defun popweb-translate-and-mark-unknown-word ()
+  (interactive)
+  (popweb-dict-bing-pointer)
+  (dictionary-overlay-mark-word-unknown))
+
+(lazy-load-set-keys
+ '((";" . popweb-dict-bing-input)
+   ("i" . popweb-dict-say-word)
+   ("y" . popweb-translate-and-mark-unknown-word)
+   ("Y" . dictionary-overlay-mark-word-known)
+   ("," . dictionary-overlay-modify-translation)
+   ("." . dictionary-overlay-render-buffer)
+   )
+ eww-mode-map)
+
+(lazy-load-set-keys
+ '((";" . popweb-dict-bing-input)
+   ("i" . popweb-dict-say-word)
+   ("y" . popweb-translate-and-mark-unknown-word)
+   ("Y" . dictionary-overlay-mark-word-known)
+   ("." . dictionary-overlay-render-buffer)
+   )
+ Info-mode-map)
 
 (provide 'init-popweb)
 
-;;; init-popweb.el ends here
+;;; init-popweb.el ends her
