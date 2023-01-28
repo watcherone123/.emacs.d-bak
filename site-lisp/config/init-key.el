@@ -9,24 +9,14 @@
                           (:key "T" :description "Toggle transparent" :command +sky/toggle-transparent :filename "init-emacs")
                           (:key "f" :description "Toggle dirvish side" :command +sky/dirvish-side-current-path :filename "init-dirvish"))
 
-(one-key-create-menu
- "Window"
- '((("l" . "Focus right window") . windmove-right)
-   (("h" . "Focus left window") . windmove-left)
-   (("k" . "Focus up window") . windmove-up)
-   (("j" . "Focus down window") . windmove-down)
-   (("L" . "Swap right window") . windmove-swap-states-right)
-   (("H" . "Swap left window") . windmove-swap-states-left)
-   (("K" . "Swap up window") . windmove-swap-states-up)
-   (("J" . "Swap down window") . windmove-swap-states-down)
-   (("s" . "Split window vertically") . split-window-below)
-   (("v" . "Split window horizontally") . split-window-right)
-   (("d" . "Delete window") . delete-window)
-   (("u" . "Undo window") . winner-undo)
-   (("C-h" . "Resize window to smaller") . shrink-window-horizontally)
-   (("m" . "Delete other window") . delete-other-windows)
-   (("C-k" . "Scroll other window up") . scroll-other-window-down)
-   (("C-j" . "Scroll other window down") . scroll-other-window)))
+(lazy-one-key-create-menu "File"
+                          (:key "s" :description "Save buffer" :command save-buffer :filename "")
+                          (:key "d" :description "Drivish" :command dirvish :filename "init-dirvish")
+                          (:key "p" :description "Find emacs config" :command +sky/find-emacs-config :filename "init-ivy")
+                          (:key "r" :description "Find recent file" :command counsel-recentf :filename "init-ivy")
+                          (:key "f" :description "Find file" :command find-file :filename "init-ivy")
+                          (:key "F" :description "Find file with fuzzy" :command counsel-fzf :filename "init-ivy")
+                          )
 
 (lazy-one-key-create-menu "Quit"
                           (:key "q" :description "Quit Emacs save session" :command emacs-session-save :filename "init-session")

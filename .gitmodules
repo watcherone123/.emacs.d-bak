@@ -155,3 +155,6 @@
 [submodule "site-lisp/pkg/websocket-bridge"]
 	path = site-lisp/pkg/websocket-bridge
 	url = https://github.com/ginqi7/websocket-bridge.git
+[submodule "site-lisp/pkg/switch-window"]
+	path = site-lisp/pkg/switch-window
+	url = https://github.com/dimitri/switch-window.git
