@@ -33,7 +33,7 @@
 
 ;;; Require
 (require 'lsp-bridge)
-
+(require 'lsp-bridge-jdtls)
 
 (setq acm-enable-quick-access t)
 (setq acm-backend-yas-match-by-trigger-keyword t)

@@ -61,11 +61,12 @@
 (setq word-wrap-by-category t)             ;按照中文折行
 (add-hook 'find-file-hook 'highlight-parentheses-mode t) ;增强的括号高亮
 
-(setq-default recentf-max-saved-items 1000)
-(recentf-mode t)
-(savehist-mode t)
-(save-place-mode t)
-(winner-mode t)
+(run-with-timer 1 nil #'(lambda () (save-place-mode t)))
+;; (setq-default recentf-max-saved-items 1000)
+;; (recentf-mode t)
+;; (savehist-mode t)
+;; (save-place-mode t)
+;; (winner-mode t)
 
 (setq ad-redefinition-action 'accept)   ;不要烦人的 redefine warning
 (setq frame-resize-pixelwise t) ;设置缩放的模式,避免Mac平台最大化窗口以后右边和下边有空隙

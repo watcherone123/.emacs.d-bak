@@ -26,15 +26,13 @@
 ;;; Commentary:
 
 ;;; Code:
-
 (require 'init-gcmh)
-
-;; 加速配置
-(require 'init-accelerate)
+(require 'esup)
+(setq gc-cons-threshold most-positive-fixnum
+      gc-cons-percentage 0.6) ;;defer gc futher back
 
 ;; 字体设置
-(require 'init-font)
-
+;; (require 'init-font)
 (let (
       ;; 清空避免加载远程文件的时候分析文件。
       (file-name-handler-alist nil))
@@ -66,7 +64,7 @@
     (require 'init-mode)
     (require 'init-grammatical-edit)
     (require 'init-one-key)
-    (require 'init-rime)
+    ;; (require 'init-rime)
     ;; 可以延后加载的
     (run-with-idle-timer
      1 nil
@@ -77,6 +75,7 @@
          (require 'init-indent)
          (require 'init-window)
          (require 'init-dired)
+         (require 'init-iedit)
          (require 'init-ivy) 
          (require 'init-lsp-bridge)
          (require 'init-meow)
@@ -101,4 +100,22 @@
          (require 'init-sort-tab)
 
          ))))
+
+
+;; @see https://www.reddit.com/r/emacs/comments/55ork0/is_emacs_251_noticeably_slower_than_245_on_windows/
+;; Emacs 25 does gc too frequently
+;; (setq garbage-collection-messages t) ; for debug
+;; (defun my-cleanup-gc ()
+;;   "Clean up gc."
+;;   (setq gc-cons-threshold  67108864) ; 64M
+;;   (setq gc-cons-percentage 0.1) ; original value
+;;   (garbage-collect))
+
+;; (run-with-idle-timer 4 nil #'my-cleanup-gc)
+
+(message "*** Emacs loaded in %s with %d garbage collections."
+           (format "%.2f seconds"
+                   (float-time (time-subtract after-init-time before-init-time)))
+           gcs-done)
+
 (provide 'init)

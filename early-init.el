@@ -33,12 +33,29 @@
 
 (require 'cl-lib)
 
+(setq gc-cons-threshold most-positive-fixnum
+      gc-cons-percentage 0.6) ;;defer gc futher back
+
+;; Package initialize occurs automatically, before `user-init-file' is
+;; loaded, but after `early-init-file'. We handle package
+;; initialization, so we must prevent Emacs from doing it early!
+(setq package-enable-at-startup nil)
+
+;; Inhibit resizing frame
+(setq frame-inhibit-implied-resize t)
+
+;; no title bar
+;; (add-to-list 'default-frame-alist '(undecorated . t))
 ;; Faster to disable these here (before they've been initialized)
+(push '(alpha-background . 85) default-frame-alist)
 (push '(menu-bar-lines . 0) default-frame-alist)
 (push '(tool-bar-lines . 0) default-frame-alist)
 (push '(vertical-scroll-bars) default-frame-alist)
-
-
+;; (push '(undecorated . t) default-frame-alist)
+(setq initial-major-mode 'fundamental-mode ;; 默认用最简单的模式
+      package--init-file-ensured t
+      inhibit-startup-message t             ; 关闭启动 Emacs 时的欢迎界面
+      )
 
 (defun add-subdirs-to-load-path (search-dir)
   (interactive)
@@ -74,5 +91,3 @@
 (add-subdirs-to-load-path "~/.emacs.d/site-lisp")
 
 (require 'init)
-
-

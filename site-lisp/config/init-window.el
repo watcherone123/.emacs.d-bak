@@ -41,7 +41,7 @@
       window-divider-default-bottom-width 2)
 
 (window-divider-mode t)
-
+(winner-mode t)
 (one-key-create-menu
  "Window"
  '((("o" . "swicth window") . switch-window)

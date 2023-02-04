@@ -1,3 +1,4 @@
+
 ;;; init-info.el --- Init for Info-mode
 
 ;; Filename: init-info.el

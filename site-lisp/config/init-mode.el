@@ -174,4 +174,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                ))
   (add-hook hook #'(lambda () (auto-fill-mode 1))))
 
+(add-hook 'prog-mode-hook 'hs-minor-mode)
+
 (provide 'init-mode)
