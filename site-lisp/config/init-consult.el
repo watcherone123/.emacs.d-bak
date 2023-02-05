@@ -32,7 +32,6 @@
 
 (require 'consult)
 (require 'consult-imenu)
-(require 'consult-imenu)
 
 (setq register-preview-delay 0.1)
 (setq register-preview-function #'consult-register-format)

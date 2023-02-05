@@ -34,9 +34,6 @@
 [submodule "site-lisp/pkg/emacs-application-framework"]
 	path = site-lisp/pkg/emacs-application-framework
 	url = https://github.com/emacs-eaf/emacs-application-framework.git
-[submodule "site-lisp/pkg/vi-navigate"]
-	path = site-lisp/pkg/vi-navigate
-	url = https://github.com/manateelazycat/vi-navigate.git
 [submodule "site-lisp/pkg/isearch-mb"]
 	path = site-lisp/pkg/isearch-mb
 	url = https://github.com/astoff/isearch-mb.git
