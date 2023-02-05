@@ -37,9 +37,6 @@
 [submodule "site-lisp/pkg/isearch-mb"]
 	path = site-lisp/pkg/isearch-mb
 	url = https://github.com/astoff/isearch-mb.git
-[submodule "site-lisp/pkg/emacs-rime"]
-	path = site-lisp/pkg/emacs-rime
-	url = https://github.com/DogLooksGood/emacs-rime.git
 [submodule "site-lisp/pkg/olivetti"]
 	path = site-lisp/pkg/olivetti
 	url = https://github.com/rnkn/olivetti.git
