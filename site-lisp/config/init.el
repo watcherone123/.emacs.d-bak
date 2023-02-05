@@ -24,10 +24,8 @@
 ;;
 
 ;;; Commentary:
-
-;;; Code:
 (require 'init-gcmh)
-(require 'esup)
+;;; Code:
 (setq gc-cons-threshold most-positive-fixnum
       gc-cons-percentage 0.6) ;;defer gc futher back
 
@@ -76,7 +74,7 @@
          (require 'init-window)
          (require 'init-dired)
          (require 'init-iedit)
-         (require 'init-ivy) 
+         (require 'init-vertico) 
          (require 'init-lsp-bridge)
          (require 'init-meow)
          (require 'init-key)
@@ -93,8 +91,8 @@
          (require 'init-olivetti)
 
          (require 'init-eaf)
-         ;;  (require 'init-popweb)
-         ;; Restore session at last.
+        ;;  ;;  (require 'init-popweb)
+        ;;  ;; Restore session at last.
          (require 'init-session)
          (emacs-session-restore)
          (require 'init-sort-tab)

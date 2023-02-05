@@ -1,4 +1,4 @@
-;;; init-ivy.el --- Init ivy config -*- lexical-binding: t -*-
+;;; init-consult.el --- Init consult config -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022-2023 watcherone123
 
@@ -25,30 +25,21 @@
 
 ;;; Commentary:
 ;;
-;; Init ivy config
+;; Init consult config
 ;;
 
 ;;; Code:
 
-(require 'swiper)
-(require 'ivy)
-(require 'counsel)
-(require 'amx)
-(require 'init-ivy-pinyin)
-(ivy-mode t)
-(amx-mode t)				;
+(require 'consult)
+(require 'consult-imenu)
+(require 'consult-imenu)
 
-(setq-default ivy-use-virtual-buffers nil
-	      ivy-height 25)
+(setq register-preview-delay 0.1)
+(setq register-preview-function #'consult-register-format)
+(setq xref-show-xrefs-function #'consult-xref)
+(setq xref-show-definitions-function #'consult-xref)
 
+(unless recentf-mode
+	(recentf-mode 1))
 
-(add-to-list 'ivy-height-alist (cons 'counsel-switch-buffer 20))
-
-(setq-default counsel-search-engine 'google)
-
-(one-key-create-menu "Counsel"
-		     '((("w" . "Switch desktop window.") . counsel-wmctrl)
-		       (("s" . "Use search engine.") . counsel-search)
-		       (("d" . "Run linux app") . counsel-linux-app)))
-
-(provide 'init-ivy)
+(provide 'init-consult)

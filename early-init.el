@@ -89,5 +89,4 @@
         (add-subdirs-to-load-path subdir-path)))))
 
 (add-subdirs-to-load-path "~/.emacs.d/site-lisp")
-
 (require 'init)

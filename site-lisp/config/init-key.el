@@ -9,15 +9,6 @@
                           (:key "T" :description "Toggle transparent" :command +sky/toggle-transparent :filename "init-emacs")
                           (:key "f" :description "Toggle dirvish side" :command +sky/dirvish-side-current-path :filename "init-dirvish"))
 
-(lazy-one-key-create-menu "File"
-                          (:key "s" :description "Save buffer" :command save-buffer :filename "")
-                          (:key "d" :description "Drivish" :command dirvish :filename "init-dirvish")
-                          (:key "p" :description "Find emacs config" :command +sky/find-emacs-config :filename "init-ivy")
-                          (:key "r" :description "Find recent file" :command counsel-recentf :filename "init-ivy")
-                          (:key "f" :description "Find file" :command find-file :filename "init-ivy")
-                          (:key "F" :description "Find file with fuzzy" :command counsel-fzf :filename "init-ivy")
-                          )
-
 (lazy-one-key-create-menu "Quit"
                           (:key "q" :description "Quit Emacs save session" :command emacs-session-save :filename "init-session")
                           )
@@ -25,27 +16,27 @@
 (lazy-one-key-create-menu "File"
                           (:key "s" :description "Save buffer" :command save-buffer :filename "")
                           (:key "d" :description "Drivish" :command dirvish :filename "init-dirvish")
-                          (:key "p" :description "Find emacs config" :command +sky/find-emacs-config :filename "init-ivy")
-                          (:key "r" :description "Find recent file" :command counsel-recentf :filename "init-ivy")
-                          (:key "f" :description "Find file" :command find-file :filename "init-ivy")
-                          (:key "F" :description "Find file with fuzzy" :command counsel-fzf :filename "init-ivy")
+                          (:key "p" :description "Find emacs config" :command +sky/find-emacs-config :filename "init-emacs")
+                          (:key "r" :description "Find recent file" :command consult-recent-file :filename "init-consult")
+                          (:key "f" :description "Find file" :command find-file :filename "")
+                          (:key "F" :description "Find file other window" :command find-file-other-window :filename "")
                           )
 
 (lazy-one-key-create-menu "Search"
-                          (:key "s" :description "Search in buffer" :command swiper :filename "init-ivy")
-                          (:key "S" :description "Search in multi buffer" :command swiper-multi
-                                :filename "init-ivy")
-                          (:key "g" :description "RipGreep here" :command counsel-rg :filename "init-ivy")
-                          (:key "f" :description "GitGrep here" :command counsel-git-grep :filename "init-ivy")
-                          (:key "d" :description "Blink Search" :command blink-search :filename "init-blink-search")
+                          (:key "s" :description "Search in buffer" :command consult-line :filename "init-consult")
+                          (:key "S" :description "Search in multi buffer" :command consult-imenu-multi
+                                :filename "init-consult")
+                          (:key "g" :description "RipGreep here" :command consult-ripgrep :filename "init-consult")
+                          (:key "f" :description "GitGrep here" :command consult-git-grep :filename "init-consult")
+                          (:key "b" :description "Blink Search" :command blink-search :filename "init-blink-search")
                           (:key "r" :description "Colorg" :command one-key-menu-color-rg :filename "init-color-rg")
-                          (:key "y" :description "Kill ring history" :command counsel-yank-pop :filename "init-ivy")
+                          (:key "y" :description "Kill ring history" :command consult-yank-pop :filename "init-consult")
                           (:key "e" :description "Fanyi" :command fanyi-dwim :filename "init-fanyi")
-                          (:key "B" :description "Bookmark" :command counsel-bookmark :filename "init-ivy")
-                          (:key "l" :description "Find libray" :command counsel-find-library :filename "init-ivy"))
+                          (:key "B" :description "Bookmark" :command consult-bookmark :filename "init-consult")
+                          )
 
 (lazy-one-key-create-menu "Buffer"
-                          (:key "b" :description "Switch buffers" :command counsel-switch-buffer :filename "init-ivy")
+                          (:key "b" :description "Switch buffers" :command consult-buffer :filename "init-consult")
                           (:key "k" :description "Kill buffer" :command kill-buffer-and-window :filename "")
                           (:key "r" :description "Revert buffer" :command revert-buffer :filename "")
                           (:key "t" :description "switch tab" :command one-key-menu-sort-tab :filename "init-sort-tab")
@@ -90,7 +81,6 @@
                           (:key "e" :description "English helper" :command lsp-bridge-toggle-english-helper :filename "init-lsp-bridge")
                           (:key "p" :description "Yank buffer filename" :command +sky/yank-buffer-file-name :filename "")
                           (:key "S" :description "Sudo edit" :command sudo-edit :filename "init-sudo-edit")
-                          (:key "i" :description "Counsel tips" :command one-key-menu-counsel :filename "init-ivy")
                           (:key "1" :description "Profiler start" :command profiler-start :filename "profiler")
                           (:key ";" :description "popweb-dict-bing" :command popweb-dict-bing-input :filename "init-popweb")
                           (:key "y" :description "translate-and-mark-unknown-word" :command popweb-translate-and-mark-unknown-word :filename "init-popweb")

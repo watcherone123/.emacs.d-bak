@@ -109,12 +109,6 @@
 [submodule "site-lisp/pkg/org-modern"]
 	path = site-lisp/pkg/org-modern
 	url = https://github.com/minad/org-modern.git
-[submodule "site-lisp/pkg/pinyinlib.el"]
-	path = site-lisp/pkg/pinyinlib.el
-	url = https://github.com/cute-jumper/pinyinlib.el.git
-[submodule "site-lisp/pkg/swiper"]
-	path = site-lisp/pkg/swiper
-	url = https://github.com/abo-abo/swiper.git
 [submodule "site-lisp/pkg/amx"]
 	path = site-lisp/pkg/amx
 	url = https://github.com/DarwinAwardWinner/amx.git
@@ -158,3 +152,15 @@
 [submodule "site-lisp/pkg/switch-window"]
 	path = site-lisp/pkg/switch-window
 	url = https://github.com/dimitri/switch-window.git
+[submodule "site-lisp/pkg/consult"]
+	path = site-lisp/pkg/consult
+	url = https://github.com/minad/consult.git
+[submodule "site-lisp/pkg/compat"]
+	path = site-lisp/pkg/compat
+	url = https://github.com/emacs-compat/compat.git
+[submodule "site-lisp/pkg/vertico"]
+	path = site-lisp/pkg/vertico
+	url = https://github.com/minad/vertico.git
+[submodule "site-lisp/pkg/emacs-async"]
+	path = site-lisp/pkg/emacs-async
+	url = https://github.com/jwiegley/emacs-async.git
