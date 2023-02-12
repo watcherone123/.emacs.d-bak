@@ -1,10 +1,19 @@
 (require 'meow)
 (meow-global-mode 1)
-(setq meow-use-clipbaord  t)
-(setq meow-expand-exclude-mode-list nil)
-(setq meow-keypad-start-keys '(;; (?c . ?c)
-			                   (?h . ?h) (?x . ?x)))
-(setq meow-use-enhanced-selection-effect t)
+
+(setq meow-use-clipbaord  t
+      meow-use-keypad-when-execute-kbd nil
+      meow-expand-exclude-mode-list nil
+      meow-replace-state-name-list '((normal . "N")
+                                          (motion . "M")
+                                          (keypad . "K")
+                                          (insert . "I")
+                                          (beacon . "B"))
+      meow-use-enhanced-selection-effect t
+      meow-cheatsheet-layout meow-cheatsheet-layout-qwerty
+      meow-keypad-start-keys '((?c . ?c)
+                                    (?x . ?x))
+)
 
 (defun lazy-meow-leader-define-key (&rest keybinds)
   (let* ((meow-leader-keybinds))
@@ -14,20 +23,11 @@
 	    (filename (cadr ele)))
 	(autoload func filename nil t)
 	(meow-define-keys 'leader (cons key func))))))
-(setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
 
 (defun meow-setup ()
   (meow-motion-overwrite-define-key
    '("j" . meow-next)
    '("k" . meow-prev)
-   '("C-j" . (lambda ()
-	       (interactive)
-	       (dotimes (i 2)
-		 (call-interactively 'meow-next))))
-   '("C-k" . (lambda ()
-	       (interactive)
-	       (dotimes (i 2)
-		 (call-interactively 'meow-prev))))
    '("<escape>" . ignore)
    '("." . repeat))
   
@@ -71,14 +71,6 @@
    )
   
   (meow-normal-define-key
-   '("C-j" . (lambda ()
-	       (interactive)
-	       (dotimes (i 2)
-		 (call-interactively 'meow-next))))
-   '("C-k" . (lambda ()
-	       (interactive)
-	       (dotimes (i 2)
-		 (call-interactively 'meow-prev))))
    '("0" . meow-expand-0)
    '("9" . meow-expand-9)
    '("8" . meow-expand-8)
@@ -111,7 +103,8 @@
    '("K" . meow-prev-expand)
    '("l" . meow-right)
    '("L" . meow-right-expand)
-   '("m" . meow-join)
+   '("m" . consult-register-store)
+   '("M" . meow-block)
    '("n" . meow-search)
    '("N" . meow-pop-selection);;
 
@@ -120,7 +113,7 @@
    '("p" . meow-yank)
    '("P" . meow-yank-pop);;
    '("q" . meow-quit)
-   '("Q" . meow-goto-line)
+   '("Q" . consult-goto-line)
    '("r" . meow-replace)
    '("R" . meow-swap-grab)
    '("s" . meow-line)
@@ -167,7 +160,23 @@
     '("." . repeat)
 
     '("<escape>" . ignore)
+    '("!" . meow-start-kmacro-or-insert-counter)
+    '("@" . meow-end-or-call-kmacro)
+    '("#" . symbol-overlay-put)
+    '("^" . meow-join)
+    '("*" . symbol-overlay-put)
+    '("/" . consult-line)
     ))
+
+(defun meow-append-vim()
+  (interactive)
+  (progn (meow-line 1)
+         (meow-append)))
+
+(defun meow-insert-vim()
+  (interactive)
+  (progn (meow-join 1)
+         (meow-append)))
 
 (meow-setup)
 (provide 'init-meow)

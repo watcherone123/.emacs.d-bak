@@ -91,6 +91,7 @@
          (require 'init-markdown-mode)
          (require 'init-olivetti)
          (require 'init-editor)
+         (require 'init-symbol-overlay)
 
          (require 'init-eaf)
         ;;  ;;  (require 'init-popweb)

@@ -1,22 +1,22 @@
 # 仓库使用
-1. clone代码
+1. clone 代码
 ```
 git clone git@github.com:watcherone123/.emacs.d.git ~/.emacs.d
 ```
 
-2. 更新submodule
+2. 更新 submodule
 ```
 cd ~/.emacs.d
 git submodule update --init --recursive
 git submodule foreach git reset --hard
 git submodule foreach git checkout master
 ```
-# linux安装
+# linux 安装
 1. 安装字体
 ```
 wqy-microhei
 ```
-2. 安装eaf
+2. 安装 eaf
 ```
 https://github.com/emacs-eaf/emacs-application-framework
 ```
@@ -25,7 +25,7 @@ https://github.com/emacs-eaf/emacs-application-framework
 ```
 git submodule foreach git pull --rebase
 ```
-# 删除submodule
+# 删除 submodule
 ```
 # Remove the submodule entry from .git/config
 git submodule deinit -f path/to/submodule
