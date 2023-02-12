@@ -58,8 +58,6 @@
                           (:key "s" :description "Lsp Bridge show document" :command lsp-bridge-lookup-documentation :filename "init-lsp-bridge")
                           (:key "s" :description "Lsp Bridge code action" :command lsp-bridge-code-action :filename "init-lsp-bridge")
                           (:key "E" :description "Lsp Bridge toggle diagnostics" :command lsp-bridge-toggle-diagnostics :filename "init-lsp-bridge")
-                          (:key "`" :description "Add Fold code" :command vimish-fold :filename "init-vimish-fold")
-                          (:key "~" :description "Delete Fold code" :command vimish-fold-delete :filename "init-vimish-fold")
                           (:key ";" :description "comment code" :command comment-or-uncomment-region+ :filename "duplicate-line")
                           )
 

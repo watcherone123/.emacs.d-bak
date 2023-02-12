@@ -118,9 +118,6 @@
 [submodule "site-lisp/pkg/apheleia"]
 	path = site-lisp/pkg/apheleia
 	url = https://github.com/radian-software/apheleia.git
-[submodule "site-lisp/pkg/vimish-fold"]
-	path = site-lisp/pkg/vimish-fold
-	url = https://github.com/matsievskiysv/vimish-fold.git
 [submodule "site-lisp/pkg/fanyi.el"]
 	path = site-lisp/pkg/fanyi.el
 	url = https://github.com/condy0919/fanyi.el.git
