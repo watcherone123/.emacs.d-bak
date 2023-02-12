@@ -28,13 +28,25 @@
 ;; Configure for window
 ;;
 (require 'switch-window)
+(require 'zoom)
 ;;; Code:
+
+(custom-set-variables
+ '(zoom-mode t))
+(defun size-callback ()
+  (cond ((> (frame-pixel-width) 1280) '(90 . 0.75))
+        (t                            '(0.5 . 0.5))))
+(custom-set-variables
+ '(zoom-size 'size-callback))
+(custom-set-variables
+ '(zoom-ignored-major-modes '(dired-mode markdown-mode))
+ '(zoom-ignored-buffer-names '("zoom.el" "init.el"))
+ '(zoom-ignored-buffer-name-regexps '("^*calc"))
+ '(zoom-ignore-predicates '((lambda () (> (count-lines (point-min) (point-max)) 20)))))
 
 ;; 窗口移动
 (setq x-underline-at-descent-line t)
-;; 窗口黄金比例
-(require 'golden-ratio)
-(golden-ratio-mode -1)
+
 ;; 绘制窗口线
 (setq window-divider-default-places t
       window-divider-default-right-width 2

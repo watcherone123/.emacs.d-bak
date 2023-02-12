@@ -161,3 +161,6 @@
 [submodule "site-lisp/pkg/hl-todo"]
 	path = site-lisp/pkg/hl-todo
 	url = https://github.com/tarsius/hl-todo.git
+[submodule "site-lisp/pkg/zoom"]
+	path = site-lisp/pkg/zoom
+	url = https://github.com/cyrus-and/zoom.git
