@@ -90,6 +90,7 @@
          (require 'init-idle)
          (require 'init-markdown-mode)
          (require 'init-olivetti)
+         (require 'init-editor)
 
          (require 'init-eaf)
         ;;  ;;  (require 'init-popweb)

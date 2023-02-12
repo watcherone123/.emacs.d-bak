@@ -64,7 +64,7 @@
     (dumb-jump-back))))
 
 (setq lsp-bridge-get-single-lang-server-by-project
-      (lambda (project-path filepath)
+      (lambda (project-path filepath)d
         ;; If typescript file include deno.land url, then use Deno LSP server.
         (save-excursion
           (when (string-equal (file-name-extension filepath) "ts")
@@ -74,7 +74,6 @@
                   (goto-char (point-min))
                   (when (search-forward-regexp (regexp-quote "from \"https://deno.land") nil t)
                     (cl-return "deno")))))))))
-
 ;; 打开日志，开发者才需要
 ;; (setq lsp-bridge-enable-log t)
 

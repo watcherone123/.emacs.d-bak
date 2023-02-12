@@ -161,3 +161,6 @@
 [submodule "site-lisp/pkg/orderless"]
 	path = site-lisp/pkg/orderless
 	url = https://github.com/oantolin/orderless.git
+[submodule "site-lisp/pkg/hl-todo"]
+	path = site-lisp/pkg/hl-todo
+	url = https://github.com/tarsius/hl-todo.git
