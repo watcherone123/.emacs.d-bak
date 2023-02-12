@@ -158,3 +158,6 @@
 [submodule "site-lisp/pkg/emacs-async"]
 	path = site-lisp/pkg/emacs-async
 	url = https://github.com/jwiegley/emacs-async.git
+[submodule "site-lisp/pkg/orderless"]
+	path = site-lisp/pkg/orderless
+	url = https://github.com/oantolin/orderless.git

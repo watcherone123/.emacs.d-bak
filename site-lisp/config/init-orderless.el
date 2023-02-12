@@ -1,4 +1,4 @@
-;;; init-vertico.el --- Init vertico config -*- lexical-binding: t -*-
+;;; init-orderless.el --- Init orderless config -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2022-2023 watcherone123
 
@@ -25,18 +25,15 @@
 
 ;;; Commentary:
 ;;
-;; Init vertico config
+;; Init orderless config
 ;;
 
 ;;; Code:
 
-(require 'vertico)
-(require 'amx)
+(require 'orderless)
 
-(setq vertico-cycle t)
-;; (define-key vertico-map (kbd "<backspace>") 'vertico-directory-delete-char)
-(vertico-mode t)
+(setq completion-styles '(orderless)
+      completion-category-defaults nil
+      completion-category-overrides '((file (styles . (partial-completion)))))
 
-(amx-mode t)
-
-(provide 'init-vertico)
+(provide 'init-orderless)

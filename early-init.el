@@ -87,6 +87,5 @@
 
         ;; 继续递归搜索子目录
         (add-subdirs-to-load-path subdir-path)))))
-
 (add-subdirs-to-load-path "~/.emacs.d/site-lisp")
 (require 'init)
