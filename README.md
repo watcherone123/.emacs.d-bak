@@ -7,9 +7,7 @@ git clone git@github.com:watcherone123/.emacs.d.git ~/.emacs.d
 2. 更新 submodule
 ```
 cd ~/.emacs.d
-git submodule update --init --recursive
-git submodule foreach git reset --hard
-git submodule foreach git checkout master
+make init
 ```
 # linux 安装
 1. 安装字体
