@@ -164,3 +164,6 @@
 [submodule "site-lisp/pkg/zoom"]
 	path = site-lisp/pkg/zoom
 	url = https://github.com/cyrus-and/zoom.git
+[submodule "site-lisp/pkg/no-littering"]
+	path = site-lisp/pkg/no-littering
+	url = https://github.com/emacscollective/no-littering.git

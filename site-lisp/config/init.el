@@ -70,6 +70,7 @@
          (require 'pretty-lambdada)
          (require 'browse-kill-ring)
          (require 'elf-mode)
+         (require 'init-backup)
          (require 'init-indent)
          (require 'init-window)
          (require 'init-dired)
@@ -79,8 +80,6 @@
          (require 'init-lsp-bridge)
          (require 'init-meow)
          (require 'init-key)
-
-        ;;  (require 'init-tree-sitter)
          (require 'init-eldoc)
          (require 'init-yasnippet)
          (require 'init-cursor-chg)
