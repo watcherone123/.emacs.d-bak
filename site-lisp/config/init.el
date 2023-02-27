@@ -77,6 +77,8 @@
          (require 'init-iedit)
          (require 'init-vertico) 
          (require 'init-orderless) 
+         (require 'init-embark)
+         (require 'init-marginalia)
          (require 'init-lsp-bridge)
          (require 'init-meow)
          (require 'init-key)

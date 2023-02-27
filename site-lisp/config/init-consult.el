@@ -38,6 +38,31 @@
 (setq xref-show-xrefs-function #'consult-xref)
 (setq xref-show-definitions-function #'consult-xref)
 
+(defcustom my-consult-ripgrep-or-line-limit 1000
+  "Buffer size threshold for `my-consult-ripgrep-or-line'.
+When the number of characters in a buffer exceeds this threshold,
+`consult-ripgrep' will be used instead of `consult-line'."
+  :type 'integer)
+
+  (defun consult-ripgrep-one-file ()
+  "Call `consult-ripgrep' for the current buffer (a single file)."
+  (interactive)
+  (let ((consult-project-root-function (lambda nil nil))
+        (consult-ripgrep-args
+         (concat "rg "
+                 "--null "
+                 "--line-buffered "
+                 "--color=never "
+                 "--line-number "
+                 "--smart-case "
+                 "--no-heading "
+                 "--max-columns=1000 "
+                 "--max-columns-preview "
+                 "--search-zip "
+                 "--with-filename "
+                 (shell-quote-argument buffer-file-name))))
+    (consult-ripgrep)))
+	
 (unless recentf-mode
 	(recentf-mode 1))
 

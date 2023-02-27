@@ -218,3 +218,9 @@ url = https://github.com/cyrus-and/zoom.git
 path = site-lisp/pkg/no-littering
 url = https://github.com/emacscollective/no-littering.git
 
+[submodule "site-lisp/pkg/marginalia"]
+	path = site-lisp/pkg/marginalia
+	url = https://github.com/minad/marginalia.git
+[submodule "site-lisp/pkg/embark"]
+	path = site-lisp/pkg/embark
+	url = https://github.com/oantolin/embark.git
