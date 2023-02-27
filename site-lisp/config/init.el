@@ -49,7 +49,7 @@
     (lazycat-theme-load-dark)
     (require 'lazy-load)
     (require 'one-key)
-    (require 'grammatical-edit)
+;;     (require 'grammatical-edit)
     (require 'display-line-numbers)
     (require 'basic-toolkit) ;;TODO: mabe remove
     (require 'redo) ;;TODO: mabe remove
@@ -60,7 +60,7 @@
     (require 'init-line-number)
     (require 'init-auto-save)
     (require 'init-mode)
-    (require 'init-grammatical-edit)
+;;     (require 'init-grammatical-edit)
     (require 'init-one-key)
     ;; (require 'init-rime)
     ;; 可以延后加载的
