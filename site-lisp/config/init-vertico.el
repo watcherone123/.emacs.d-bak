@@ -31,12 +31,9 @@
 ;;; Code:
 
 (require 'vertico)
-(require 'amx)
 
 (setq vertico-cycle t)
 ;; (define-key vertico-map (kbd "<backspace>") 'vertico-directory-delete-char)
 (vertico-mode t)
-
-(amx-mode t)
 
 (provide 'init-vertico)
