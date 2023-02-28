@@ -42,9 +42,18 @@
                           (:key "t" :description "switch tab" :command one-key-menu-sort-tab :filename "init-sort-tab")
                           )
 
-(one-key-create-menu
- "Nagivator"
- '((("d" . "Go to definetion") . xref-find-definitions)))
+(lazy-one-key-create-menu "Nagivator"
+                          (:key "f" :description "Format code" :command apheleia-format-buffer :filename "init-format")
+                          (:key "d" :description "find-definitions" :command xref-find-definitions :filename "")
+                          (:key "D" :description "find-def-other-window" :command xref-find-definitions-other-window :filename "")
+                          (:key "r" :description "find-references" :command xref-find-references :filename "")
+                          (:key "j" :description "find-apropos" :command xref-find-apropos :filename "")
+                          (:key "n" :description "Lsp Bridge rename" :command lsp-bridge-rename :filename "init-lsp-bridge")
+                          (:key "i" :description "Lsp Bridge find impl" :command lsp-bridge-find-impl :filename "init-lsp-bridge")
+                          (:key "s" :description "Lsp Bridge show document" :command lsp-bridge-lookup-documentation :filename "init-lsp-bridge")
+                          (:key "s" :description "Lsp Bridge code action" :command lsp-bridge-code-action :filename "init-lsp-bridge")
+                          (:key "E" :description "Lsp Bridge toggle diagnostics" :command lsp-bridge-toggle-diagnostics :filename "init-lsp-bridge")
+                          )
 
 (lazy-one-key-create-menu "Code"
                           (:key "f" :description "Format code" :command apheleia-format-buffer :filename "init-format")
