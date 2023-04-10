@@ -25,6 +25,19 @@ compile:
 	@rm $(EMACSPATH)/cache/autoloads.pkg.el*
 	@$(EMACS) --load $(INITFILE) --eval '(maple-package-force-initialize)'
 
+# 初始化下载，更新到 .gitmodules 中指定的 commit
+init:
+	@git submodule update --init --recursive
+	@git submodule foreach git reset --hard
+	@git submodule foreach 'git checkout master || git checkout main'
+
+# 修改 .gitmodules 后
+sync:
+	git submodule sync
+
+update:
+	git submodule foreach git pull --rebase
+	
 # Run tests.
 test:
 	@$(EMACS) -Q -nw --batch -l init.el --eval '(progn (memory-report) (message (buffer-string)))'
