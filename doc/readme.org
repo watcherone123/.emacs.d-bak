@@ -1,0 +1,440 @@
+#+STARTUP:  hidestars
+* Table      hide or show different parts , add - in org mode
+* Links
+  - C-c C-l add a link, backspace will show the link
+  - C-c C-o open the link in chrome
+  - [[https://www.google.com][google]]
+* Tutorial
+  - C-<chr>      hold the CONTROL key while typing the character <chr>
+  - M-<chr>      hold the ALT key while typing the character <chr>
+  - C-x C-c      exit the emacs session
+  - C-g          quit a partially entered command
+  - C-x k        stop the buffer
+  - C-v          move forward one screenful
+  - M-v          move backward one screenful
+  - C-l          clear screen and redisplay all the text, moving the text around the cursor to the center of the screen
+  - C-f          move forward a character
+  - C-b          move backward a character
+  - C-p          move to previous line
+  - C-n          move to next line
+  - C-a          move to beginning of line
+  - C-e          move to end of line
+  - M-f          move forward a word
+  - M-b          move backward a word
+  - M-<          move to the beginning of the text
+  - M->          move to the end of the text
+  - C-u x C-n/C-p C-f/C-b M-f/M-b    move with a numeric argument
+  - C-u x C-v/M-v                    scroll text by x lines, rather than by a screenful
+  - <DEL>       delete the charater just before the cursor
+  - C-d         delete the next charater after the cursor
+  - C-k         kill from cursor position to end of line
+  - M-k         kill to the end of the current sentence
+  - C-<SPC> move C-w  kill the text slected
+  - C-y         reinsert the last killed text at the current position
+  - M-y         bring in earlier and earlier kills
+  - C-/         undo the change
+  - C-x C-f     find a file
+  - C-x C-s     save  file
+  - C-x C-w     save as file
+  - C-x s       ask you about each buffer whick contaions changes, whether to save the buffer
+  - C-x C-b     list buffers
+  - C-x b       switch to buffer
+  - C-x 1       delete all but one window
+  - C-z         suspend emacs
+  - fg          resume emacs
+  - %emacs      resume emacs
+  - M-x recover-this-file     recover auto-saved file
+  - C-s         forward search
+  - C-s C-s     go to the next ocurrence
+  - C-r         reverse search
+  - C-r C-r     go to the forward ocurrence
+  - C-x 2       split the screen into two windows
+  - C-M-v       scroll the bottom window
+  - C-x o       move cursor to other window
+  - C-h c       tell the name of the function
+  - C-h k       display the documentation of the function
+  - C-h f       describe a function
+  - M-x shell   invoke a shell
+* query-replace-help
+#+BEGIN_SRC
+Type Space or `y' to replace one match, Delete or `n' to skip to next,
+RET or `q' to exit, Period to replace one match and exit,
+Comma to replace but not move point immediately,
+C-r to enter recursive edit (\\[exit-recursive-edit] to get out again),
+C-w to delete match and recursive edit,
+C-l to clear the screen, redisplay, and offer same replacement again,
+! to replace all remaining matches in this buffer with no more questions,
+^ to move point back to previous match,
+u to undo previous replacement,
+U to undo all replacements,
+E to edit the replacement string.
+In multi-buffer replacements type `Y' to replace all remaining
+matches in all remaining buffers with no more questions,
+`N' to skip to the next buffer without replacing remaining matches
+in the current buffer.
+#+END_SRC
+* coding-system
+1.查看当前buffer的编码：M-x describe-coding-system
+2.列出所有编码：C-x <RET> r <TAB>
+3.以指定编码重读当前buffer：C-x <RET> r utf-8，（revert-buffer-with-coding-system）
+4.改变当前buffer的编码：C-x <RET> f utf-8，（set-buffer-file-coding-system）
+5.设定下一步操作的编码格式：C-x <RET> c，（universal-coding-system-argument）
+
+* emacs-tutorial<2019-07-25 周四>
+** 安装 emacs28-GUI
+*window*
+https://mirrors.tuna.tsinghua.edu.cn/gnu-alpha/emacs/pretest/windows/
+
+*Ubuntu*
+源码编译安装(最新版)
+
+系统更新资源：
+
+#+BEGIN_SRC
+sudo apt-get update && apt-get upgrade
+#+END_SRC
+
+安装源码编译需要的包：
+
+#+BEGIN_SRC
+sudo apt-get install build-essential libncurses-dev
+# 支持svg图标
+sudo apt-get install librsvg2-dev
+#+END_SRC
+
+可以到 EMACS官方下载页面 或 直接使用下面的链接:
+
+#+BEGIN_SRC shell
+$ cd /tmp
+$ http://mirrors.aliyun.com/gnu/emacs/emacs-28.1.tar.gz
+$ wget http://mirrors.ustc.edu.cn/gnu/emacs/emacs-26.1.tar.xz
+## 解压 xz 文件包
+$ tar -xJvf emacs-28.1.tar.xz
+$ cd emacs-28.1
+#+END_SRC
+
+可以通过 _configure_ 进行配置安装：
+
+    纯命令行：仅用于控制台环境，如果需要GUI界面还要安装其它开发包, --without-x，以及 --with-gnutls=no
+    交互界面：默认是会配置所有的交互界面，但需要额外安装相关的软件包。
+
+#+BEGIN_SRC
+ ## 默认安装 GUI
+ $ ./configure
+#+END_SRC
+
+对于在本地操作，一般我选择配置 GUI。如果有报错需要安装包，可以使用 apt search xxx 来搜索名称，然后安装好就可以了。我安装了几个常用的包：
+
+#+BEGIN_SRC
+$ sudo apt-get install gnutls-dev libxpm-dev libgif-dev libtiff-dev
+#+END_SRC
+
+如果继续报错
+
+#+BEGIN_SRC
+... ...
+checking for libXaw... configure: error: No X toolkit could be found.
+... ...
+#+END_SRC
+
+则需要通过安装 gtk 来实现带界面运行
+
+#+BEGIN_SRC
+apt search gtk | grep libgtk
+libgtk2.0-dev    - development files for the GTK+ library
+#+END_SRC
+
+
+安装这个 gtk 包
+
+#+BEGIN_SRC
+$ sudo apt-get install libgtk2.0-dev
+
+#+END_SRC
+
+剩下的就是编译安装了
+
+#+BEGIN_SRC
+$ sudo make && make install
+
+#+END_SRC
+
+查看版本号
+
+#+BEGIN_SRC
+$ emacs --version
+GNU Emacs 26.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+You may redistribute copies of GNU Emacs
+under the terms of the GNU General Public License.
+For more information about these matters, see the file named COPYING.
+#+END_SRC
+当然，也可以在终端启动无界面的操作：
+
+#+BEGIN_SRC
+$ emacs -nw
+#+END_SRC
+
+** magit
+现在来试一试如何用，官方文档在这里：https://magit.vc/manual/magit.html#Top 状态查询
+C-x g来查询状态
+会打开一个buffer，显示
+Head: //指向当前分支的的最近一次提交
+Merge: //远程分支的最近一次提交
+Untracked files //工作区中有，但没有加入git管理
+Unstaged files //git管理的，在工作区已经修改的，但是没有用git add进入staged状态
+其实还有其他更多信息：
+“Staged changes”, //用git add变成了staged状态
+“Unpulled commits”, “Unpushed commits”,
+状态信息做的不错，git status输出也有这些信息，不过没有它这么简洁。
+查看帮助
+在状态buffer中，用C-h m 会打开帮助信息。
+删除文件
+在shell中用rm命令删除一些文件，然后再查看状态，会看到类似如下信息
+Unstaged changes (2) deleted data/dw_product_dt.csv deleted data/dw_product_dt.csv.tgz
+这时光标移动到这两个文件，分别按下s，会将这两个文件状态变为staged
+Staged changes (2) deleted data/dw_product_dt.csv deleted data/dw_product_dt.csv.tgz
+然后继续按c建进入提交界面，按c后会提示输入comments，之后C-c C-c会提交成功。
+此时状态buffer会看到一个commit id，回车可以看到里面的详细信息
+按P键计入push界面，再按p会直接push到远程分支。
+commit
+前面已经说过了，这里重复一次
+按c，然后再按c，输入comments
+C-c C-c提交 push
+把untracked文件变为staged 相当于git add命令 按下s即可
+** c/c++ ide
+*** lsp + ccls
+*** counsel-etags + ctags + company-etags
+ctags：大多数 Unix 系统都能找到。只支持 C。只有基本的功能；
+
+Exuberant ctags：它支持 C、C++、Java、Fortran、Python、Eiffel、PHP等41种语言，详见这里；
+下载Exuberant ctags: http://ctags.sourceforge.net/
+
+Tips:
+_emacs自带有ctags，但是没有e参数，需要重新下载Exuberant ctags_
+
+macs company实现补全的候选来源，叫company-backends；是一个emacs变量，可以使用c-h v company-backends查看。
+1- 默认的company候选项有很多，有时候发现很多候选项对自己完全不适用，极大干扰了自动补全的效率。
+2- 主要的是company-dabbrev，是依赖emacs当前打开的buffer作为自动补全候选项来源。很有作用。
+3- 还有company-files，是文件系统的路径。很有作用。
+4- company-keywords，是当前文件所属编程语言的语法关键词。
+5- company-gtags、company-etags是依据ctags等生成TAGS，去寻找候选项。
+6- 其它均可以在文件目录里找到其描述 d:/EDA-tools/emacs/emacs-25.1/.emacs.d/elpa/company-20170715.1035
+7- 根据个人实践，去删减，达到优化目的；使得自动补全的候选项都是期望的内容。
+如何判断，当前候选项，来自哪个company-backends？
+回答：m-x diminish-undo，然后选择company-mode后，mode-line会显示当前补全的候选项来自哪个company-backends。
+#+BEGIN_SRC
+(defconst shadow/company-global-backends '(
+                                          ;; 当前文件所属编程语言的语法关键词
+                                          company-keywords
+                                          ;; 使用 completion-at-point-functions 的后端
+                                          company-capf
+                                          ;; 主要用来补全当前 buffer 中出现的 word
+                                          company-dabbrev
+                                          ;; 使用 yasnippet 补全的后端
+                                          company-yasnippet
+                                          ;; 补全文件系统的路径后端
+                                          company-files
+                                          (company-dabbrev-code
+                                          company-etags
+                                          company-gtags
+                                          )))
+
+(setq company-backends shadow/company-global-backends))
+
+https://github.com/redguardtoo/counsel-etags
+
+find /usr/include | ctags -e -L -
+#+END_SRC
+*** counsel-gtags + company-gtags
+https://www.gnu.org/software/global/download.html
+
+* 16进制模式
+ALT+X hexl-mode   进入16进制模式
+在这一模式，直接输入时还是输入按键的值，如输入3在光标位置出现3的ascii码33
+想要输入16进制数，需用
+ALT+X hexl-insert-hex-char 命令
+或者
+CTRL+ALT+X 命令
+然后输入16进制数回车
+比如输入40,就代表0x40.
+退出模式命令
+ALX+X hexl-mode-exit
+
+* treemacs
+调整宽度
+
+如果只是临时调整，可以取消锁定：
+1）执行 M-x treemacs-toggle-fixed-width 命令，取消宽度锁定；
+2）使用鼠标，手动调整宽度；
+3）执行 M-x treemacs-toggle-fixed-width 命令，进行宽度锁定；
+* 安装配置
+#+begin_src shell
+mv ~/.emacs.d/ ~/.emacs.d_bak &&  git clone  --depth=1 https://gitee.com/e190/emacs.d.git ~/.emacs.d
+cd ~/.emacs.d/ && git submodule update --init --recursive
+
+## let it tangles itself
+emacs --daemon
+## hooray, enjoy the Grandview
+emacsclient -cn
+#+end_src
+
+* align-regexp
+;; 对齐操作:
+;;     选中一段代码区域
+;;     调用 align-regexp 命令
+;;     写入需要对齐的赋值符号
+https://github.com/manateelazycat/smart-align
+
+* tree-sitter
+github mirrors: https://github.91chi.fun//  https://ghproxy.com/ https://hub.fastgit.xyz
+
+elpa/tsc-20220212.1632/Cargo.toml
+git = "https://github.com/ubolonton/tree-sitter"
+
+elpa/tsc-20220212.1632/tsc-dyn-get.el
+  tsc-dyn-get--github
+elpa/tree-sitter-langs-20220328.1344/tree-sitter-langs-build.el
+  tree-sitter-langs--bundle-url
+
+https://emacs-tree-sitter.github.io/getting-started/
+
+tree-sitter-load-path
+("/home/sniper/.config/emacs/elpa/tree-sitter-langs-20220328.1344/bin/" "/home/sniper/.tree-sitter/bin/")
+
+#+begin_src emacs-lisp
+;; Add Emacs-Lisp for tree-sitter:
+;;
+;; 1. git clone https://github.com/Wilfred/tree-sitter-elisp.git
+;; 2. cd tree-sitter-elisp/src/ && gcc parser.c -fPIC -I./ --shared -o elisp.so
+;; 3. cp ./elisp.so ~/.tree-sitter-langs/bin (~/.tree-sitter-langs/bin is path of your tree-sitter-langs repo)
+(require 'tree-sitter)
+(tree-sitter-load 'elisp "elisp")
+(add-to-list 'tree-sitter-major-mode-language-alist '(emacs-lisp-mode . elisp))
+#+end_src
+
+* cscope
+ 为了方便使用，编写了下面的脚本来更新cscope和ctags的索引文件：
+ #+begin_src sh
+find . -name "*.h" -o -name "*.c" -o -name "*.cc" > cscope.files
+cscope -bkq -i cscope.files
+ctags -R
+ #+end_src
+
+这个命令会生成三个文件：cscope.out, cscope.in.out, cscope.po.out。
+其中cscope.out是基本的符号索引，后两个文件是使用"-q"选项生成的，可以加快cscope的索引速度。
+这个脚本，首先使用find命令，查找当前目录及子目录中所有后缀名为".h", ".c"和".c"的文件，并把查找结果重定向到文件cscope.files中。
+然后cscope根据cscope.files中的所有文件，生成符号索引文件。
+上面所用到的命令参数，含义如下：
+-R: 在生成索引文件时，搜索子目录树中的代码
+-b: 只生成索引文件，不进入cscope的界面
+-q: 生成cscope.in.out和cscope.po.out文件，加快cscope的索引速度
+-k: 在生成索引文件时，不搜索/usr/include目录
+-i: 如果保存文件列表的文件名不是cscope.files时，需要加此选项告诉cscope到哪儿去找源文件列表。可以使用“-”，表示由标准输入获得文件列表。
+-I dir: 在-I选项指出的目录中查找头文件
+-u: 扫描所有文件，重新生成交叉索引文件
+-C: 在搜索时忽略大小写
+-P path: 在以相对路径表示的文件前加上的path，这样，你不用切换到你数据库文件所在的目录也可以使用它了。
+#+begin_src sh
+fd -e h -e c -e cpp -e cc -tf -c never > cscope.files
+cscope -bkq -i cscope.files
+#+end_src
+
+* ctags
+https://github.com/universal-ctags/ctags
+#+begin_src sh
+$ pwd
+/yard/code/linux-5.17.9
+$ ctags -n --languages=C,C++,KConfig,Asm,LdScript --extras=-{fileScope} -f .tags -R
+$ du -BM .tags
+449M	.tags
+#+end_src
+这里的关键有二：
+    -n 选项可以不生成 search pattern 而用行号代替，能节省不少空间。
+    --extras=-{fileScope} 可以不生成具有 file scope（也就是从外面不能引用）的符号的 tag。
+如果您不需要看某些文件夹的代码的话，可以把它们排除掉。比如排除 foo 文件夹：
+--exclude=foo/*
+
+#+begin_src sh
+ctags
+-o
+%TAGSFILE%
+--languages=C,C++
+--extras=-{fileScope}
+--exclude=build_dir/*
+--exclude=staging_dir/*
+--exclude=owtoolchain/*
+-R
+#+end_src
+
+* all-the-icons
+https://github.com/domtronn/all-the-icons.el.git ~/.local/share/fonts/
+* consult
+
+#+begin_src emacs-lisp
+(defun my/consult-line-forward ()
+  "Search for a matching line forward."
+  (interactive)
+  (consult-line))
+
+(defun my/consult-line-backward ()
+  "Search for a matching line backward."
+  (interactive)
+  (advice-add 'consult--line-candidates :filter-return 'reverse)
+  (unwind-protect (consult-line)
+    (advice-remove 'consult--line-candidates 'reverse)))
+
+(defvar my/consult-line-forward-map (make-sparse-keymap))
+(define-key my/consult-line-forward-map (kbd "C-r") 'vertico-previous)
+(define-key my/consult-line-forward-map (kbd "C-s") 'vertico-next)
+
+(defvar my/consult-line-backward-map (make-sparse-keymap))
+(define-key my/consult-line-backward-map (kbd "C-s") 'vertico-previous)
+(define-key my/consult-line-backward-map (kbd "C-r") 'vertico-next)
+
+(with-eval-after-load 'consult
+  (consult-customize my/consult-line-backward
+                     :keymap my/consult-line-backward-map)
+  (consult-customize my/consult-line-forward
+                     :keymap my/consult-line-forward-map))
+
+(global-set-key (kbd "C-s") 'my/consult-line-forward)
+(global-set-key (kbd "C-r") 'my/consult-line-backward)
+#+end_src
+
+* treesit
+treesit 是 emacs-29 内置的 tree-sitter
+#+begin_src emacs-lisp
+(require 'treesit)
+(push '(c-mode . c-ts-mode) major-mode-remap-alist)
+(push '(c++-mode . c++-ts-mode) major-mode-remap-alist)
+
+;; (setq treesit--font-lock-verbose t)
+
+(add-hook 'prog-mode-hook #'general-ts-mode-setup)
+(add-hook 'c-ts-mode-hook #'c-ts-setup)
+#+end_src
+
+调试:
+运行 *treesit-explorer-mode*
+modeline 上显示的信息是 *treesit-inspect-mode*
+
+首先会从 treesit-extra-load-path 里找（这个值需要你自己设），
+然后再去你 user-emacs-directory 下的 tree-sitter 里找， ~/.emacs.d/tree-sitter/
+最后到系统默认动态库的地方找,例如 /usr/local/lib
+** tree-sitter 下载
+#+begin_src sh
+git clone --depth=1 https://ghproxy.com/https://github.com/tree-sitter/tree-sitter.git
+cd tree-sitter/ && make
+
+git clone --depth=1 https://ghproxy.com/https://github.com/casouri/tree-sitter-module.git
+cd tree-sitter-module && ./batch
+cp -r dist ~/.config/emacs/tree-sitter
+
+git clone --depth=1 https://ghproxy.com/https://github.com/emacs-mirror/emacs.git
+./autogen.sh
+./configure --with-tree-sitter && make -j4
+#+end_src
+* astyle
+/astyle.sourceforge.net/

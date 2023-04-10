@@ -1,0 +1,143 @@
+* key
+| key                      | Description                                       |   |
+|--------------------------+---------------------------------------------------+---|
+| ~C-x C-+~                  | 放大字体                                          |   |
+| ~C-x C--~                  | 缩小字体                                          |   |
+| ~C-x C-0~                  | 还原字体                                          |   |
+|                          |                                                   |   |
+| *magit*                    |                                                   |   |
+| ~C-/~                      | 撤销                                              |   |
+| ~C-y~                      | 粘贴                                              |   |
+| ~M-w~                      | 复制                                              |   |
+|                          |                                                   |   |
+|--------------------------+---------------------------------------------------+---|
+| *dired*                    |                                                   |   |
+| +                        | 新建文件夹                                        |   |
+| ~C~                        | copy文件或者文件夹                                |   |
+| ~R~                        | 重命名文件或者文件夹                              |   |
+| ~D~                        | 删除文件或者文件夹                                |   |
+| ~m~                        | 标记                                              |   |
+| ~u~                        | 取消标记                                          |   |
+| ~C-x C-f~                  | 新建文件                                          |   |
+| ~x~                        | C/D/R命令的执行                                   |   |
+|--------------------------+---------------------------------------------------+---|
+| customized               |                                                   |   |
+|                          |                                                   |   |
+| eval-last-sexp (C-x C-e) | 使当前 elisp 配置中光标前的那一条语句立刻生效     |   |
+| eval-region              | 使当前 elisp 配置中选中的 region 中的语句立刻生效 |   |
+| eval-buffer              | 使当前的 buffer 中的设置语句立刻生效              |   |
+| load-file                |                                                   |   |
+| ~C-c C-l~                  | 重新加载配置                                      |   |
+| ~C-c y~                    | 有道词典                                          |   |
+| ~SPC h h~                  | 帮助系统                                          |   |
+| visual ~C-c~               | 复制到系统剪切板                                  |   |
+| Insert ~C-v~               | 从系统剪切板粘贴                                  |   |
+| LSP ~C-c i~                | imenu                                             |   |
+|                          |                                                   |   |
+| symbol-overlay           |                                                   |   |
+| iedit                    |                                                   |   |
+|                          |                                                   |   |
+|                          |                                                   |   |
+#+BEGIN_SRC emacs-lisp
+  :C-j electric-newline-and-maybe-indent
+  :C-k kill-line
+
+  Go to older position in jump list.
+  :C-o----evil-jump-backward
+
+  Go to newer position in jump list.
+  :TAB----evil-jump-forward
+#+END_SRC
+
+* org
+| key          | Description                              |   |
+|--------------+------------------------------------------+---|
+| *org*          |                                          |   |
+| ~C-c~          | 创建表格                                 |   |
+| ~C-c C-c~      | 格式化表格                               |   |
+| ~M-S down~     | 下方插入一行表格                         |   |
+| ~M-S up~       | 上方删除一行表格                         |   |
+| ~M-S right~    | 右方插入一行表格                         |   |
+| ~M-S left~     | 左方删除一行表格                         |   |
+| ~M-S left~     | 左方删除一行表格                         |   |
+| ~M-up~         | 表格上移                                 |   |
+| ~M-down~       | 表格下移                                 |   |
+| ~C-c -~        | 插入水平分割线                           |   |
+| ~C-c Ret~      | 插入水平分割线并跳到下一行               |   |
+| ~C-c C-t~      | 创建TODO                                 |   |
+| ~S-left/right~ | 改变TODO状态                             |   |
+| ~C-c ^~        | 根据当前列排序                           |   |
+| ~S-M-RET~      | 创建一个目前层级的TODO项                 |   |
+| ~C-c .~        | 激活时间标签 (org-time-stamp)            |   |
+| ~C-c !~        | 非激活时间标签 (org-time-stamp-inactive) |   |
+|              |                                          |   |
+|              |                                          |   |
+
+** Tips
+表格的自动生成
+
+只要你打一个| 就代表一列，然后按下C-c C-c 或者Ret 或者 TAB，即可自动调整表格
+表格内容与表头分界线的生成，输入|-，然后自动生成
+
+~<backtab>~ shift + tab
+** 字体
+
+*粗体*
+#+BEGIN_SRC
+*粗体*
+#+END_SRC
+/斜体/
+/asdfd/
+
++删除线+
+#+BEGIN_SRC
++删除线+
+#+END_SRC
+_下划线_
+#+BEGIN_SRC
+_下划线_
+#+END_SRC
+下标： H_2 O
+#+BEGIN_SRC
+下标： H_2 O
+#+END_SRC
+
+上标： E=mc^2
+#+BEGIN_SRC
+上标： E=mc^2
+#+END_SRC
+
+等宽字：  =git=
+ 或者 ~git~
+#+BEGIN_SRC
+等宽字：  =git=
+ 或者 ~git~
+#+END_SRC
+** 超链接
+
+[[https://www.baidu.com]]
+#+BEGIN_SRC
+
+[[https://www.baidu.com]]
+
+#+END_SRC
+[[www.baidu.com][aa]]
+#+BEGIN_SRC
+[[www.baidu.com][aa]]
+#+END_SRC
+
+
+[[~/.emacs.d/init.el]]
+#+BEGIN_SRC
+[[~/.emacs.d/init.el]]
+#+END_SRC
+
+** work flow
+*** TODO work1 <2022-06-11 Sat>
+|  time | project |
+|-------+---------|
+| 03-04 | adsf    |
+|       |         |
+|       |         |
+*** DONE work2 <2022-06-11 Sat>
+CLOSED: [2022-06-11 Sat 15:49]

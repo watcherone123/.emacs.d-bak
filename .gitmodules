@@ -1,0 +1,15 @@
+[submodule "thing-edit"]
+	path = site-lisp/thing-edit
+	url = https://github.com/manateelazycat/thing-edit.git
+[submodule "maple-iedit"]
+	path = site-lisp/maple-iedit
+	url = https://github.com/honmaple/emacs-maple-iedit.git
+[submodule "site-lisp/color-rg"]
+	path = site-lisp/color-rg
+	url = https://github.com/manateelazycat/color-rg.git
+[submodule "imenu-list"]
+	path = site-lisp/imenu-list
+	url = https://gitee.com/e190/imenu-list.git
+[submodule "vundo"]
+	path = site-lisp/vundo
+	url = https://github.com/casouri/vundo.git

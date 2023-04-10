@@ -1,0 +1,131 @@
+* return to normal mode
+#+BEGIN_SRC emacs-lisp
+ESC or <c-[>
+#+END_SRC
+* move cursor
+#+BEGIN_SRC emacs-lisp
+0---head of line        |  w---first letter of forward word
+$---end of line         |  b---first letter of current / backward word
+gg--head of paragraph   |  e---last letter of current / forward word
+G---end of paragraph    |  ge--last letter of backward word
+#+END_SRC
+* modity
+#+BEGIN_SRC emacs-lisp
+.---repeat last change                |  u---undo last change
+A---add content at end of line        |  a---add content before cursor
+I---add content at begin of line      |  i---add content after cursor
+O---add content at previous line      |  o---add content at next line
+#+END_SRC
+* delete and insert
+#+BEGIN_SRC emacs-lisp
+ci(--delete all things bwtween (), insert
+ciw--delete word ,insert
+caw--delete word and space, insert
+s----delete char at cursor, insert
+S----delete line, insert
+#+END_SRC
+* delete
+#+BEGIN_SRC emacs-lisp
+di(--delete all things between ()
+x----delete char at cursor
+X----delete char before cursor
+dd---delete line
+dw---delete chars from cursor to end of word, contain space
+db---delete chars before cursor in word
+diw--delete word at cursor
+daw--delete word at cursor, contain space
+dis--delete a sentence
+das--delete a sentence, contain space
+dip--delete a paragraph
+dap--delete a paragraph, contain space
+D--(evil-delete-line)Delete to end of line.
+#+END_SRC
+* visual
+#+BEGIN_SRC emacs-lisp
+v----char  |  V----line
+C-v--block |  gv---redo last selection
+o----change active line in selected block
+#+END_SRC
+* switch caps
+#+BEGIN_SRC emacs-lisp
+guu--low line
+gUU--up line
+guw--low word
+gUw--up word
+g~---switch up and low
+#+END_SRC
+* copy and move
+#+BEGIN_SRC emacs-lisp
+:t----copy
+:6t.--copy line 6 to next line
+:t6---copy line at cursor next to line 6
+:t.---copy line at cursor and past ==yyp
+:t$---copy line at cursor to end of paragraph
+yiw---copy a word and past
+#+END_SRC
+* windows
+#+BEGIN_SRC emacs-lisp
+C-w s split a horizontal window
+C-w v split a vertical window
+C-w c close active window
+C-w o only remain active window
+#+END_SRC
+* jump between parentheses
+#+BEGIN_SRC emacs-lisp
+%--jump bwtween () [] {} "" <>
+#+END_SRC
+* replace
+#+BEGIN_SRC emacs-lisp
+r--replace a char one time
+R--continue replacing a char one time
+
+:s/target/replacement------replace in a line
+:s/target/replacement/g----replace in a sentence
+:%s/target/replacement/g---replace in all
+:%s/target/replacement/gc--replace in all and confirm everytime
+#+END_SRC
+* sort
+#+BEGIN_SRC emacs-lisp
+sort--use in a block
+:g/{/ .+1, /}/-1 sort --sort in {}
+#+END_SRC
+* jump position
+#+BEGIN_SRC emacs-lisp
+Go to older position in jump list.
+:C-o----evil-jump-backward
+
+Go to newer position in jump list.
+:TAB----evil-jump-forward
+#+END_SRC
+* 多行编辑
+  1. 普通模式下，光标移动到第一行的=处，按 ctrl+v，进入列选择模式，然后按两下j，可以看到这三行的=号这一列被高亮
+  2. 按 shift + i 或者 shift + a，进入编辑模式，两者的区别是shift+i会在=号前插入，shift+a会在等号后插入。
+      如果是想把这三列的=删除且插入新的内容，则按c，三列的=会被删除，且进入编辑模式
+  3. 输入你想输入的内容
+  4. ESC
+
+* undo-redo
+"u" 'evil-undo
+"\C-r" 'evil-redo
+
+* surround
+*Add surrounding*
+You can surround in visual-state with S<textobject> or gS<textobject>.
+Or in normal-state with ys<textobject> or yS<textobject>.
+
+*Change surrounding*
+You can change a surrounding with cs<old-textobject><new-textobject>.
+
+*Delete surrounding*
+You can delete a surrounding with ds<textobject>.
+
+(asdlfkj)
+
+* 折叠code
+| ~z m~                      | evil-close-folds隐藏所有代码块
+| ~z r~                      | evil-open-folds显示所有被隐藏的代码块
+| ~z o~                      | evil-open-fold显示当前代码块
+| ~z O~ 	                 | evil-open-fold-rec递归地显示当前以及之内的代码块
+| ~z c~ 	                 | evil-close-fold隐藏当前被隐藏的代码块
+| ~z C~ 	                 | evil-close-fold-rec递归地隐藏当前以及之内的代码块
+| ~z a~ 	                 | evil-toggle-fold来切换是否隐藏代码
