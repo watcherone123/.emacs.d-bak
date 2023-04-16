@@ -35,8 +35,6 @@
 
 (use-package imenu-list
   :defer t
-  :ensure nil
-  :load-path "site-lisp/imenu-list"
   :commands (imenu-list-smart-toggle)
   :config
   (setq imenu-list-auto-resize t)

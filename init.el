@@ -85,15 +85,15 @@ decrease this. If you experience stuttering, increase this.")
 ;; (update-load-path)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "lib/corfu/extensions" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "lib/vertico/extensions" user-emacs-directory))
+;; (add-to-list 'load-path (expand-file-name "lib/corfu/extensions" user-emacs-directory))
+;; (add-to-list 'load-path (expand-file-name "lib/vertico/extensions" user-emacs-directory))
 
-(setq custom-file (concat user-emacs-directory "custom.el"))
-(let ((custom-example-file
-       (expand-file-name "custom-example.el" user-emacs-directory)))
-  (if (and (file-exists-p custom-example-file)
-           (not (file-exists-p custom-file)))
-      (copy-file custom-example-file custom-file)))
+;; (setq custom-file (concat user-emacs-directory "custom.el"))
+;; (let ((custom-example-file
+;;        (expand-file-name "custom-example.el" user-emacs-directory)))
+;;   (if (and (file-exists-p custom-example-file)
+;;            (not (file-exists-p custom-file)))
+;;       (copy-file custom-example-file custom-file)))
 
 ;; Packages
 ;; Must come first
@@ -135,7 +135,7 @@ decrease this. If you experience stuttering, increase this.")
   (require 'init-chinese)
   )
 
-(when (file-exists-p custom-file)
-  (load custom-file))
+;; (when (file-exists-p custom-file)
+;;   (load custom-file))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here

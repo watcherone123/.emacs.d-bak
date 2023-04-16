@@ -100,6 +100,7 @@ See `consult-grep' for more details regarding the asynchronous search."
               ("M-<DEL>" . my/minibuffer-backward-kill)
               :map vertico-map
               ("M-q" . vertico-quick-insert)) ; use C-g to exit
+  :commands vertico-mode
   :init
   ;; Show more candidates
   ;; (setq vertico-count 20)

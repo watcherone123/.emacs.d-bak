@@ -209,9 +209,6 @@
 [submodule "s"]
 	path = lib/s
 	url = https://github.com/magnars/s.el
-[submodule "site-lisp/color-rg"]
-	path = site-lisp/color-rg
-	url = https://github.com/manateelazycat/color-rg.git
 [submodule "symbol-overlay"]
 	path = lib/symbol-overlay
 	url = https://github.com/wolray/symbol-overlay
@@ -254,3 +251,6 @@
 [submodule "yasnippet-snippets"]
 	path = lib/yasnippet-snippets
 	url = https://github.com/AndreaCrotti/yasnippet-snippets
+[submodule "lib/borg"]
+	path = lib/borg
+	url = https://github.com/emacscollective/borg.git

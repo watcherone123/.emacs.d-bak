@@ -106,12 +106,12 @@
 
 
 ;; Load `custom-file'
-(and (file-readable-p custom-file) (load custom-file))
+;; (and (file-readable-p custom-file) (load custom-file))
 
-(eval-and-compile ; `borg'
-  (add-to-list 'load-path (expand-file-name "lib/borg" user-emacs-directory))
-  (require 'borg)
-  (borg-initialize))
+;; (eval-and-compile ; `borg'
+;;   (add-to-list 'load-path (expand-file-name "lib/borg" user-emacs-directory))
+;;   (require 'borg)
+;;   (borg-initialize))
 
 (eval-and-compile ; `use-package'
   (setq use-package-enable-imenu-support t)
