@@ -47,7 +47,6 @@
     :init (modern-c++-font-lock-global-mode t)))
 
 (use-package cmake-mode
-  :ensure t
   :mode (
 	 ("CMakeLists\\.txt\\'" . cmake-mode)
 	 ("\\.cmake\\'" . cmake-mode)))
@@ -105,7 +104,6 @@
     )
 
 (use-package astyle
-  :ensure t
   :when (executable-find "astyle")
   :config
   (setq astyle-style "otbs"
@@ -156,7 +154,6 @@
 
 ;; Cargo support
 (use-package cargo
-  :ensure t
   :hook ((rust-mode . cargo-minor-mode))
   :config
   (defun my/cargo-test-current ()
@@ -170,42 +167,39 @@
            (cargo-process--command-flags "--  --nocapture")))
 
 (use-package flycheck-rust
-  :ensure t
   :config
   (with-eval-after-load 'rust-mode
     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
 
 
 
-(if (sniper-treesit-available-p)
-  (use-package treesit-langs
-    :ensure nil
-    :load-path "site-lisp/treesit-langs"
-    :hook (prog-mode . sniper-ts-mode))
-    ;; )
+;; (if (sniper-treesit-available-p)
+;;   (use-package treesit-langs
+;;     :ensure nil
+;;     :load-path "site-lisp/treesit-langs"
+;;     :hook (prog-mode . sniper-ts-mode))
+;;     ;; )
 
-  (maple/add-hook 'after-init-hook
-    (use-package tree-sitter
-        :ensure t
-        :custom-face
-        (tree-sitter-hl-face:operator      ((t (:inherit default))))
-        ;; (tree-sitter-hl-face:constant        ((t (:foreground "LimeGreen"))))
-        ;; c 语言结构体
-        (tree-sitter-hl-face:property        ((t (:inherit font-lock-variable-name-face))))
-        (tree-sitter-hl-face:function.call ((t (:inherit font-lock-function-name-face
-                                                :underline t
-                                                :italic t))))
-        (tree-sitter-hl-face:function.method.call ((t)))
-        (tree-sitter-hl-face:method.call   ((t (:inherit font-lock-function-name-face))))
-        :config
-        (global-tree-sitter-mode)
-        (setq tsc-dyn-get-from '(:github))
-        (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+;;   (maple/add-hook 'after-init-hook
+;;     (use-package tree-sitter
+;;         :custom-face
+;;         (tree-sitter-hl-face:operator      ((t (:inherit default))))
+;;         ;; (tree-sitter-hl-face:constant        ((t (:foreground "LimeGreen"))))
+;;         ;; c 语言结构体
+;;         (tree-sitter-hl-face:property        ((t (:inherit font-lock-variable-name-face))))
+;;         (tree-sitter-hl-face:function.call ((t (:inherit font-lock-function-name-face
+;;                                                 :underline t
+;;                                                 :italic t))))
+;;         (tree-sitter-hl-face:function.method.call ((t)))
+;;         (tree-sitter-hl-face:method.call   ((t (:inherit font-lock-function-name-face))))
+;;         :config
+;;         (global-tree-sitter-mode)
+;;         (setq tsc-dyn-get-from '(:github))
+;;         (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
-    (use-package tree-sitter-langs
-        :ensure t
-        :after tree-sitter)
-    ))
+;;     (use-package tree-sitter-langs
+;;         :after tree-sitter)
+;;     ))
 
 (use-package lua-mode
   :defer t

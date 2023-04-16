@@ -43,13 +43,11 @@
 (use-package rainbow-mode
   :disabled
   :defer t
-  :ensure t
   :diminish rainbow-mode
   :hook ((text-mode . rainbow-mode)
          (prog-mode . rainbow-mode)))
 
 (use-package ef-themes
-  :ensure t
   :bind ("C-c t" . ef-themes-toggle)
   :init
   ;; set two specific themes and switch between them

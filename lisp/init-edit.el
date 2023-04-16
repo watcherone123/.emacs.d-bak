@@ -15,7 +15,6 @@
 ;; Hungry deletion
 (use-package hungry-delete
   :defer t
-  :ensure t
   :bind (("C-c DEL" . hungry-delete-backward))
   :bind (("C-c d" . hungry-delete-forward))
   :diminish hungry-delete-mode
@@ -24,7 +23,6 @@
 
 ;; Edit multiple regions in the same way simultaneously
 (use-package iedit
-  :ensure t
   :bind (("C-;" . iedit-mode)
          ("C-x r RET" . iedit-rectangle-mode)
          :map isearch-mode-map ("C-;" . iedit-mode-from-isearch)
@@ -32,9 +30,7 @@
          :map help-map ("C-;" . iedit-mode-toggle-on-function)))
 
 (use-package maple-iedit
-  :ensure nil
   :after evil
-  :load-path "site-lisp/maple-iedit"
   :commands (maple-iedit-match-all maple-iedit-match-next maple-iedit-match-previous)
   :bind (:map evil-visual-state-map
               ("n" . maple-iedit-menu)
@@ -55,8 +51,7 @@
     [("p" "[prev]" maple-iedit-match-previous)]]))
 
 ;; [ialign] Interactive align
-(use-package ialign
-  :ensure t)
+(use-package ialign)
 
 ;; Increase selected region by semantic units
 (use-package expand-region
@@ -96,9 +91,7 @@
     (remove-hook 'before-save-hook #'delete-trailing-whitespace)
     (message "disable-trailing-whitespace")))
 
-(use-package thing-edit
-  :ensure nil; local package
-  :load-path "site-lisp/thing-edit")
+(use-package thing-edit)
 
 (when use-rime
   ;; https://github.com/DogLooksGood/emacs-rime

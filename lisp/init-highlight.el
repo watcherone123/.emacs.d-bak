@@ -13,7 +13,6 @@
 
 (use-package symbol-overlay
   :diminish
-  :ensure t
   :hook (prog-mode . symbol-overlay-mode)
   :init (setq symbol-overlay-idle-time 0.1))
 
@@ -24,7 +23,6 @@
               show-paren-when-point-in-periphery t))
 
 (use-package highlight-parentheses
-  :ensure t
   :hook (prog-mode . highlight-parentheses-mode)
   :config
   (setq highlight-parentheses-delay 0.2)

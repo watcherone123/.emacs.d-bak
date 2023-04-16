@@ -5,7 +5,6 @@
 ;;; Code:
 
 (use-package go-translate
-  :ensure t
   :defer t
   :commands (my-default-translator
               bing-translate-pop)

@@ -80,7 +80,7 @@
   "b e" 'eval-buffer
   "b d" 'kill-this-buffer
   "b D" '(shadow/kill-other-buffers :wk "kill-other")
-  "b i" '(shadow/indent-region-or-buffer :wk "indent-buffer")
+  "b i" '(sky-indent-region-or-buffer :wk "indent-buffer")
   "b k" 'kill-buffer
   "b l" 'ibuffer-list-buffers
   "b g" '(shadow/revert-buffer-no-confirm :wk "revert-buffer")

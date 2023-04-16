@@ -8,7 +8,6 @@
 ;;;; Help
 ;; https://emacs-china.org/t/helpful-el/8153/3
 (use-package helpful
-  :ensure t
   :preface
   (defun helpful-at-point-dwim ()
     (interactive)

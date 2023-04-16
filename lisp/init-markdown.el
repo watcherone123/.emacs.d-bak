@@ -9,7 +9,6 @@
 ;;; Code:
 
 (use-package markdown-mode
-  :ensure t
   :mode (("\\.mmark\\'" . markdown-mode)
          ("README\\.md$'" . gfm-mode)
          ("\\.md$'" . markdon-mode)

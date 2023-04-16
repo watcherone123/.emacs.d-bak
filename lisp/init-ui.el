@@ -6,7 +6,7 @@
 ;;; Code:
 
 ;; 设置透明
-(set-frame-parameter nil 'alpha 0.9)
+(set-frame-parameter nil 'alpha 1.0)
 
 ;; Title
 ;; Sets a more useful frame title, showing either a file or a buffer
@@ -50,7 +50,6 @@
 
 (use-package centaur-tabs
   :defer t
-  :ensure t
   :hook (after-init . centaur-tabs-mode)
   (maple-imenu-mode . centaur-tabs-local-mode)
   (dired-mode . centaur-tabs-local-mode)

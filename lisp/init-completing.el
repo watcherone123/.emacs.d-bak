@@ -82,7 +82,6 @@ See `consult-grep' for more details regarding the asynchronous search."
       (find-file (consult--find (car prompt-dir) #'+consult--fd-builder initial)))))
 
 (use-package consult-dir
-  :ensure t
   :bind (("C-x C-d" . consult-dir)
          :map minibuffer-local-completion-map
          ("C-x C-d" . consult-dir)
@@ -90,7 +89,6 @@ See `consult-grep' for more details regarding the asynchronous search."
 
 ;; provide annotations in minibuffer
 (use-package marginalia
-  :ensure t
   :config
   (marginalia-mode 1)
   (setq marginalia-align 'center))
@@ -98,7 +96,6 @@ See `consult-grep' for more details regarding the asynchronous search."
 ;; Vertico seems to lag when dealing with a very long list
 ;; such as while in describe-functions
 (use-package vertico
-  :ensure t
   :bind (:map minibuffer-local-map
               ("M-<DEL>" . my/minibuffer-backward-kill)
               :map vertico-map
@@ -135,7 +132,6 @@ folder, otherwise delete a word"
 ;; Configure directory extension.
 (use-package vertico-directory
   :after vertico
-  :ensure nil
   ;; More convenient directory navigation commands
   :bind (:map vertico-map
               ("RET" . vertico-directory-enter)
@@ -146,7 +142,6 @@ folder, otherwise delete a word"
 
 (use-package orderless
   :defer t
-  :ensure t
   :init
   (setq completion-styles '(orderless)
         completion-category-defaults nil
@@ -259,7 +254,6 @@ use FILTER predicate to filter desired packages to see."
 ;; Enable Corfu completion UI
 ;; See the Corfu README for more configuration tips.
 (use-package corfu
-  :ensure t
   :bind
   (:map corfu-map
         ("TAB" . corfu-next)
@@ -317,8 +311,8 @@ use FILTER predicate to filter desired packages to see."
                 #'kind-all-the-icons-margin-formatter))
 
 (use-package corfu-history
-  :ensure nil
   :after corfu
+  :commands corfu-history-mode
   :init
   (corfu-history-mode 1)
   :config
@@ -327,15 +321,15 @@ use FILTER predicate to filter desired packages to see."
   )
 
 (use-package corfu-terminal
-  :ensure t
   :when (not (display-graphic-p))
+  :commands corfu-terminal-mode 
   :after corfu
-  :init (corfu-terminal-mode 1))
+  :init (corfu-terminal-mode 1)
+  )
 
 ;; more at
 ;; https://kristofferbalintona.me/posts/cape/
 (use-package cape
-  :ensure t
   :defer t
   :hook
   (emacs-lisp-mode . kb/cape-capf-setup-elisp)

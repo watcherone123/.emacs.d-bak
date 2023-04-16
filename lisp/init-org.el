@@ -250,11 +250,9 @@
 
 ;; Pixel alignment for org/markdown tables
 (use-package valign
-  :ensure t
   :hook ((markdown-mode org-mode) . valign-mode))
 
 (use-package org-modern
-  :ensure t
   :defer t
   :hook (org-mode . (lambda ()
                         (setq org-modern-hide-stars 'leading)

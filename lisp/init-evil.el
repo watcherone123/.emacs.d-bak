@@ -118,7 +118,6 @@
 ;; f: 1 char forward; F: 1 char backward
 ;; ;and, repeat search
 (use-package evil-snipe
-  :ensure t
   ;; :after evil
   :hook ((evil-mode . evil-snipe-mode)
          (evil-mode . evil-snipe-override-mode))
