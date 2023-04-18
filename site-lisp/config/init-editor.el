@@ -42,4 +42,27 @@
 
 (global-hl-todo-mode t)
 
+(add-hook 'prog-mode-hook (lambda ()
+                            (prettify-symbols-mode)
+							 (setq-default prettify-symbols-alist
+                '(("lambda" . ?λ)
+                  ("<-" . ?←)
+                  ("->" . ?→)
+                  ("->>" . ?↠)
+                  ("=>" . ?⇒)
+                  ("/=" . ?≠)
+                  ("!=" . ?≠)
+                  ("<=" . ?≤)
+                  (">=" . ?≥)
+                  ("=<<" . (?= (Br . Bl) ?≪))
+                  (">>=" . (?≫ (Br . Bl) ?=))
+                  ("<=<" . ?↢)
+                  (">=>" . ?↣)))
+				   (setq prettify-symbols-unprettify-at-point 'right-edge)
+                            ))
+  (add-hook 'asm-mode-hook
+    (lambda ()
+      ;; Preferred comment style
+      (setq comment-start "// "
+            comment-end "")))
 (provide 'init-editor)

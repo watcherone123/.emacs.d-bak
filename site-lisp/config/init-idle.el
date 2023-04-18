@@ -84,14 +84,6 @@
 
 ;;; Code:
 
-(pretty-lambda-for-modes)
-(browse-kill-ring-default-keybindings)    ;加载默认的按键邦定
-(setq browse-kill-ring-quit-action        ;设置退出动作
-      (quote save-and-restore))           ;保存还原窗口设置
-(autoload 'hanconvert-region "hanconvert" ;简繁中文互相转换
-  "Convert a region from simple chinese to tradition chinese or
-from tradition chinese to simple chinese" t)
-(autoload 'irfc "init-irfc")
 (custom-set-variables '(tramp-verbose 0)) ;设置tramp的响应方式, 关闭后不弹出消息
 (setq max-lisp-eval-depth 40000)          ;lisp最大执行深度
 (setq max-specpdl-size 10000)             ;最大容量
@@ -135,7 +127,6 @@ from tradition chinese to simple chinese" t)
               (not redefine)        ;重新定义的函数 (比如参数数量改变)
               (not cl-functions)    ;`CL' 包中的运行时调用的函数
               )))
-(elf-setup-default)                     ;二进制文件默认用elf模式打开
 (setq echo-keystrokes 0.1)              ;加快快捷键提示的速度
 (tooltip-mode -1)                       ;不要显示任何 tooltips
 (setq package-archives ;设置中国的镜像源，国外的太慢了，偶尔去偷点 *.el 文件

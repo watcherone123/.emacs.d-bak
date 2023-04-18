@@ -39,7 +39,11 @@
 (setq gcmh-idle-delay 'auto  ; default is 15s
       gcmh-auto-idle-delay-factor 10
       gcmh-high-cons-threshold (* 16 1024 1024))  ; 16mb
-(gcmh-mode t)
+
+(defun enable-gcmh-mode ()
+  (gcmh-mode t)
+)
+(add-hook 'emacs-startup #'enable-gcmh-mode)
 
 (defun doom-defer-garbage-collection-h ()
   (setq gc-cons-threshold most-positive-fixnum))

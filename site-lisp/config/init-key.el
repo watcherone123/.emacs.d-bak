@@ -1,3 +1,7 @@
+;;; init-key.el --- Generic config. -*- lexical-binding: t -*-
+(require 'general)
+(require 'init-funcs)
+
 (global-set-key (kbd "C-x C-r") #'restart-emacs)
 
 (lazy-one-key-create-menu "Toggle"
@@ -16,10 +20,10 @@
 (lazy-one-key-create-menu "File"
                           (:key "s" :description "Save buffer" :command save-buffer :filename "")
                           (:key "d" :description "Drivish" :command dirvish :filename "init-dirvish")
+                          (:key "e" :description "Rename file" :command rename-this-file :filename "")
                           (:key "p" :description "Find emacs config" :command +sky/find-emacs-config :filename "init-emacs")
                           (:key "r" :description "Find recent file" :command consult-recent-file :filename "init-consult")
                           (:key "f" :description "Find file" :command find-file :filename "")
-                          (:key "F" :description "Find file other window" :command find-file-other-window :filename "")
                           )
 
 (lazy-one-key-create-menu "Search"
@@ -106,12 +110,58 @@
 
 (lazy-load-global-keys '(("C-x m" . embark-act))
                        "init-embark")
+(require 'which-key)
+(run-with-idle-timer 2 nil #'which-key-mode)
+(with-eval-after-load 'which-key
+                           
+                            
+                              (setq which-key-idle-delay 0.3
+        which-key-compute-remaps t
+        which-key-min-display-lines 1
+        which-key-add-column-padding 1
+        which-key-max-display-columns nil
+        which-key-sort-uppercase-first nil
+        which-key-side-window-max-width 0.33
+        which-key-side-window-max-height 0.20
+        which-key-sort-order #'which-key-prefix-then-key-order)
+         (which-key-setup-side-window-bottom)
+           (dolist (item '((("SPC" . nil) . ("␣" . nil))
+                  (("TAB" . nil) . ("↹" . nil))
+                  (("RET" . nil) . ("⏎" . nil))
+                  (("DEL" . nil) . ("⌫" . nil))
+                  (("<up>" . nil) . ("↑" . nil))
+                  (("<down>" . nil) . ("↓" . nil))
+                  (("<left>" . nil) . ("←" . nil))
+                  (("<right>" . nil) . ("→" . nil))
+                  (("deletechar" . nil) . ("⌦" . nil))
+                  ;; rename winum-select-window-1 entry to 1..9
+                  (("\\(.*\\)1" . "winum-select-window-1") . ("\\11..9" . "window 1..9"))
+                  ;; hide winum-select-window-[2-9] entries
+                  ((nil . "winum-select-window-[2-9]") . t)))
+    (cl-pushnew item which-key-replacement-alist :test #'equal))
+    (set-face-attribute 'which-key-local-map-description-face nil :weight 'bold)
+                            )
 
-;;; --- 帮助模式
-(lazy-load-global-keys
- '(
-   ("C-h". one-key-menu-help)           ;帮助菜单
-   )
- "init-help-mode")
+(general-create-definer sky-space-key-define
+  :states '(normal visual motion evilified)
+  :keymaps 'override
+  :prefix "SPC"
+  :non-normal-prefix "M-SPC")
+
+(general-create-definer sky-local-key-define
+  :states '(normal visual motion evilified)
+  :keymaps 'override
+  :prefix ",")
+
+(sky-space-key-define
+  "SPC" 'execute-extended-command
+  ";" 'comment-or-uncomment
+  "b" 'one-key-menu-buffer
+  "f" 'one-key-menu-file
+  "s" 'one-key-menu-search
+  "p" 'one-key-menu-project
+  "w" 'one-key-menu-window
+  "q" 'one-key-menu-quit
+)
 
 (provide 'init-key)

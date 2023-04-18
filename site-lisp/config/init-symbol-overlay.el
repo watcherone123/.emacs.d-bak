@@ -103,6 +103,8 @@
    ("M-p" . symbol-overlay-switch-backward)
    )
  symbol-overlay-map)
+(setq symbol-overlay-idle-time 0.1)
+(add-hook 'prog-mode-hook #'symbol-overlay-mode)
 
 (provide 'init-symbol-overlay)
 

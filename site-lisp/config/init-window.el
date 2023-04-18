@@ -29,6 +29,7 @@
 ;;
 (require 'switch-window)
 (require 'zoom)
+(require 'init-funcs)
 ;;; Code:
 
 (custom-set-variables
@@ -52,8 +53,11 @@
       window-divider-default-right-width 2
       window-divider-default-bottom-width 2)
 
-(window-divider-mode t)
+
+(run-with-idle-timer 2 nil #'(lambda ()
+      (window-divider-mode t)
 (winner-mode t)
+))
 (one-key-create-menu
  "Window"
  '((("o" . "swicth window") . switch-window)
@@ -65,13 +69,11 @@
    (("H" . "Swap left window") . windmove-swap-states-left)
    (("K" . "Swap up window") . windmove-swap-states-up)
    (("J" . "Swap down window") . windmove-swap-states-down)
-   (("s" . "Split window vertically") . split-window-below)
-   (("v" . "Split window horizontally") . split-window-right)
+   (("-" . "Split window vertically") . sky-split-window-below-and-focus)
+   (("/" . "Split window horizontally") . sky-split-window-right-and-focus)
    (("d" . "Delete window") . delete-window)
    (("u" . "Undo window") . winner-undo)
-   (("C-h" . "Resize window to smaller") . shrink-window-horizontally)
-   (("m" . "Delete other window") . delete-other-windows)
-   (("C-k" . "Scroll other window up") . scroll-other-window-down)
-   (("C-j" . "Scroll other window down") . scroll-other-window)))
+   (("D" . "Delete other window") . delete-other-windows)
+   ))
    
 (provide 'init-window)

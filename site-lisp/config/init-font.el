@@ -29,64 +29,75 @@
 ;;
 
 ;;; Code:
+(require 'init-funcs)
 
+(defcustom sky-font '("Fira Code" . 11)
+  "Set font."
+  :group 'centaur
+  :type '(alist :key-type string :value-type number))
+;; Font
+(defvar font-list '(("Input" . 11)
+                    ("Fira Code" . 11)
+                    ("Source Code Pro" . 12)
+                    ("Ubuntu Mono" . 13)
+                    ("Consolas" . 12)
+                    ("DejaVu Sans Font" . 11)
+                    ("SauceCodePro Nerd Font Mono" . 11)
+                    ("monofur" . 11)
+                    ("Anonymous Pro" . 11))
+  "List of fonts and sizes.  The first one available will be used.")
 
-(defun load-font-setup()
-  (cond ((eq window-system 'pgtk)
-         (set-face-attribute 'default nil :height 140 :family "WenQuanYi Micro Hei Mono"))
-        (t
-         (let ((emacs-font-size 14)
-               (chinese-font-name  "TsangerJinKai03-6763")
-               english-font-name)
-           (cond
-            ((featurep 'cocoa)
-             (setq english-font-name "Monaco"))
-            ((string-equal system-type "gnu/linux")
-             (setq english-font-name "WenQuanYi Micro Hei Mono")))
-           (when (display-grayscale-p)
-             (set-frame-font (format "%s-%s" (eval english-font-name) (eval emacs-font-size)))
-             (set-fontset-font (frame-parameter nil 'font) 'unicode (eval english-font-name))
+;; FontFun
+(defun change-font ()
+  "Documentation."
+  (interactive)
+  (let* (available-fonts font-name font-size font-setting)
+    (dolist (font font-list (setq available-fonts (nreverse available-fonts)))
+      (when (member (car font) (font-family-list))
+        (push font available-fonts)))
+    (if (not available-fonts)
+        (message "No fonts from the chosen set are available")
+      (if (called-interactively-p 'interactive)
+          (let* ((chosen (assoc-string (completing-read "What font to use? " available-fonts nil t) available-fonts)))
+            (setq font-name (car chosen) font-size (read-number "Font size: " (cdr chosen))))
+        (setq font-name (caar available-fonts) font-size (cdar available-fonts)))
+      (setq font-setting (format "%s-%d" font-name font-size))
+      (set-frame-font font-setting nil t)
+      (add-to-list 'default-frame-alist (cons 'font font-setting))
+      (setq-local font-name-s (format "\"%s\"" font-name))
+      (sky-set-variable 'sky-font (cons font-name-s font-size)))))
 
-             (dolist (charset '(kana han symbol cjk-misc bopomofo))
-               (set-fontset-font (frame-parameter nil 'font) charset (font-spec :family (eval chinese-font-name))))
-             )))))
+;; Fonts
+(defun sky-set-fonts ()
+    "Set default font."
+    (if (font-installed-p (car sky-font))
+        (set-face-attribute 'default nil
+                                        :font (car sky-font)
+                                        :height (* (cdr sky-font) 10))
+      (progn (message "can't find font %s" (car sky-font))
+             (cl-loop for (font . size) in font-list
+                      when (font-installed-p font)
+                      return (set-face-attribute 'default nil
+                                                  :font font
+                                                  :height (* size 10)))))
+    ;; Specify font for all unicode characters
+    (set-fontset-font t 'unicode "Symbola" nil 'prepend)
+    ;; Specify font for Chinese characters
+    (cl-loop for font in '("WenQuanYi Micro Hei" "Microsoft Yahei")
+            when (font-installed-p font)
+            return (set-fontset-font t '(#x4e00 . #x9fff) font)))
 
-(load-font-setup)
+(add-hook 'after-init-hook #'(lambda ()
+  (if (daemonp)
+      (add-hook 'after-make-frame-functions
+                (lambda (frame)
+                  (select-frame frame)
+                  (sky-set-fonts)))
+    (when (display-graphic-p)
+      (sky-set-fonts)))
+) 
+)
 
-(dolist (hook (list
-               'c-mode-common-hook
-               'c-mode-hook
-               'c++-mode-hook
-               'java-mode-hook
-               'haskell-mode-hook
-               'emacs-lisp-mode-hook
-               'lisp-interaction-mode-hook
-               'lisp-mode-hook
-               'maxima-mode-hook
-               'ielm-mode-hook
-               'sh-mode-hook
-               'makefile-gmake-mode-hook
-               'php-mode-hook
-               'python-mode-hook
-               'js-mode-hook
-               'go-mode-hook
-               'qml-mode-hook
-               'jade-mode-hook
-               'css-mode-hook
-               'ruby-mode-hook
-               'coffee-mode-hook
-               'rust-mode-hook
-               'qmake-mode-hook
-               'lua-mode-hook
-               'swift-mode-hook
-               'web-mode-hook
-               'markdown-mode-hook
-               'llvm-mode-hook
-               'conf-toml-mode-hook
-               'nim-mode-hook
-               'typescript-mode-hook
-               ))
-  (add-hook hook #'(lambda () (load-font-setup))))
 
 (defun +sky/toggle-big-font ()
   "切换大字体模式"

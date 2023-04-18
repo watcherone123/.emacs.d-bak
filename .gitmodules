@@ -1,7 +1,3 @@
-[submodule "site-lisp/pkg/lazycat-theme"]
-path = site-lisp/pkg/lazycat-theme
-url = https://github.com/manateelazycat/lazycat-theme.git
-
 [submodule "site-lisp/pkg/lazy-load"]
 path = site-lisp/pkg/lazy-load
 url = https://github.com/manateelazycat/lazy-load.git
@@ -9,10 +5,6 @@ url = https://github.com/manateelazycat/lazy-load.git
 [submodule "site-lisp/pkg/one-key"]
 path = site-lisp/pkg/one-key
 url = https://github.com/manateelazycat/one-key.git
-
-[submodule "site-lisp/pkg/awesome-tray"]
-path = site-lisp/pkg/awesome-tray
-url = https://github.com/manateelazycat/awesome-tray.git
 
 [submodule "site-lisp/pkg/grammatical-edit"]
 path = site-lisp/pkg/grammatical-edit
@@ -224,3 +216,54 @@ url = https://github.com/emacscollective/no-littering.git
 [submodule "site-lisp/pkg/embark"]
 	path = site-lisp/pkg/embark
 	url = https://github.com/oantolin/embark.git
+[submodule "site-lisp/pkg/ef-themes"]
+	path = site-lisp/pkg/ef-themes
+	url = https://github.com/protesilaos/ef-themes.git
+[submodule "site-lisp/pkg/highlight-parentheses"]
+	path = site-lisp/pkg/highlight-parentheses
+	url = https://github.com/emacsmirror/highlight-parentheses.git
+[submodule "site-lisp/pkg/goggles"]
+	path = site-lisp/pkg/goggles
+	url = https://github.com/minad/goggles.git
+[submodule "site-lisp/pkg/mood-line"]
+	path = site-lisp/pkg/mood-line
+	url = https://gitlab.com/jessieh/mood-line.git
+[submodule "site-lisp/pkg/helpful"]
+	path = site-lisp/pkg/helpful
+	url = https://github.com/Wilfred/helpful.git
+[submodule "site-lisp/pkg/elisp-refs"]
+	path = site-lisp/pkg/elisp-refs
+	url = https://github.com/Wilfred/elisp-refs.git
+[submodule "site-lisp/pkg/f"]
+	path = site-lisp/pkg/f
+	url = https://github.com/rejeep/f.el.git
+[submodule "site-lisp/pkg/general.el"]
+	path = site-lisp/pkg/general.el
+	url = https://github.com/noctuid/general.el.git
+[submodule "site-lisp/pkg/evil"]
+	path = site-lisp/pkg/evil
+	url = https://github.com/emacs-evil/evil.git
+[submodule "site-lisp/pkg/evil-surround"]
+	path = site-lisp/pkg/evil-surround
+	url = https://github.com/emacs-evil/evil-surround.git
+[submodule "site-lisp/pkg/evil-collection"]
+	path = site-lisp/pkg/evil-collection
+	url = https://github.com/emacs-evil/evil-collection.git
+[submodule "site-lisp/pkg/evil-snipe"]
+	path = site-lisp/pkg/evil-snipe
+	url = https://github.com/hlissner/evil-snipe.git
+[submodule "site-lisp/pkg/goto-chg"]
+	path = site-lisp/pkg/goto-chg
+	url = https://github.com/emacs-evil/goto-chg.git
+[submodule "site-lisp/pkg/annalist.el"]
+	path = site-lisp/pkg/annalist.el
+	url = https://github.com/noctuid/annalist.el.git
+[submodule "site-lisp/pkg/which-key"]
+	path = site-lisp/pkg/which-key
+	url = https://github.com/justbur/emacs-which-key.git
+[submodule "site-lisp/pkg/centaur-tabs"]
+	path = site-lisp/pkg/centaur-tabs
+	url = https://github.com/ema2159/centaur-tabs.git
+[submodule "site-lisp/pkg/powerline"]
+	path = site-lisp/pkg/powerline
+	url = https://github.com/milkypostman/powerline.git

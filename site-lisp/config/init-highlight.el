@@ -32,11 +32,25 @@
 
 
 ;;; Require
-(require 'highlight-parentheses)
 
-;;; Code:
-(setq hl-paren-colors '("DarkOrange" "DeepSkyBlue" "DarkRed"))
 
-(provide 'init-highlight-parentheses)
+(add-hook 'prog-mode-hook (lambda ()
+                            (require 'highlight-parentheses)
+                            (setq highlight-parentheses-delay 0.2)
+                            (setq highlight-parentheses-colors '("Springgreen3"
+                                                                 "IndianRed3"
+                                                                 "IndianRed4"
+                                                                 "yellow"
+                                                                 ))))
+(dolist (hook (list
+               'prog-mode-hook
+               'text-mode-hook
+               'conf-mode-hook
+               ))
+  (add-hook hook #'(lambda ()
+                     (require 'goggles)
+                     (setq-default goggles-pulse nil)
+                     (goggles-mode)
+                     )))
 
-;;; init-highlight-parentheses.el ends here
+(provide 'init-highlight)
