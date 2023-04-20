@@ -74,8 +74,9 @@
                          (directory-files lisp-dir)))
            load-path))))
 
-    (sky-add-subdirs-to-load-path (file-name-as-directory "~/.emacs.d/site-lisp/pkg"))
-  (add-to-list 'load-path "~/.emacs.d/site-lisp/config")
+(sky-add-subdirs-to-load-path (file-name-as-directory "~/.emacs.d/site-lisp/pkg"))
+(sky-add-subdirs-to-load-path (file-name-as-directory "~/.emacs.d/site-lisp/pkg/dirvish/extensions"))
+(add-to-list 'load-path "~/.emacs.d/site-lisp/config")
 
 
 (require 'init)

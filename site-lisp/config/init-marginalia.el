@@ -36,6 +36,6 @@
                                    marginalia-annotators-light
                                    nil))
 
-(add-hook 'after-init-hook 'marginalia-mode)
+(marginalia-mode t)
 
 (provide 'init-marginalia)

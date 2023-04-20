@@ -267,3 +267,6 @@ url = https://github.com/emacscollective/no-littering.git
 [submodule "site-lisp/pkg/powerline"]
 	path = site-lisp/pkg/powerline
 	url = https://github.com/milkypostman/powerline.git
+[submodule "site-lisp/pkg/maple-imenu"]
+	path = site-lisp/pkg/maple-imenu
+	url = https://github.com/honmaple/emacs-maple-imenu.git

@@ -54,12 +54,14 @@
     (require 'init-auto-save)
     (require 'init-mode)
     (require 'init-one-key)
-    (require 'init-centaur-tabs)
+    (require 'init-which-key)
+    (require 'init-evil)
     ;; 可以延后加载的
     (run-with-idle-timer
      1 nil
      #'(lambda ()
         (require 'init-editor)
+        (require 'init-centaur-tabs)
         ;;  (require 'browse-kill-ring)
         ;; ;;  (require 'elf-mode)
          (require 'init-backup)
@@ -72,7 +74,6 @@
          (require 'init-embark)
          (require 'init-marginalia)
          (require 'init-lsp-bridge)
-         (require 'init-evil)
          (require 'init-key)
          (require 'init-eldoc)
          (require 'init-yasnippet)
@@ -93,8 +94,6 @@
         ;;  (require 'init-sort-tab)
 
          ))))
-
-
 ;; @see https://www.reddit.com/r/emacs/comments/55ork0/is_emacs_251_noticeably_slower_than_245_on_windows/
 ;; Emacs 25 does gc too frequently
 ;; (setq garbage-collection-messages t) ; for debug
